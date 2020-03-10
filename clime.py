@@ -164,7 +164,7 @@ def getChoice(choices):
 
 def selectOS():
         cls()
-        set_title("CLIME - Select Operating System")
+        set_title("CLIME - Select an Operating System")
         print()
         print(color_random[0] + spacer + "Select the operating system you would like to learn:\n" + fx.end)
         print(spacer + fg.yellow + " 1" + fg.white + ") Linux" + fx.end)
