@@ -9,7 +9,6 @@ from console import fg, bg, fx
 from console.utils import cls, set_title
 
 
-
 #-CONFIGURATION------------------------------------------------------------------------------------
 
 OS = None
@@ -230,7 +229,7 @@ def mainMenu():
         exit()
 
 
-#-LEVELS-------------------------------------------------------------------------------------------
+#-LEVEL INSTRUCTIONS-------------------------------------------------------------------------------
 
 L1Text = "LEVEL 1 \n line 1 text \n line 2 text \n line 3 text"
 L2Text = "LEVEL 2 \n line 1 text \n line 2 text \n line 3 text"
@@ -300,10 +299,12 @@ def level3():
 
 LL1E1 = Question("Linux Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
 LL1E2 = Question("Linux Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
+
 LL1Exercises = [LL1E1, LL1E2]
 
 LL2E1 = Question("Linux Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
 LL2E2 = Question("Linux Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
+
 LL2Exercises = [LL2E1, LL2E2]
 
 LL3E1 = Question("Linux Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
