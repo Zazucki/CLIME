@@ -383,6 +383,6 @@ try:
     while True:
         mainMenu()
 except (KeyboardInterrupt, EOFError) as e:
-    print("Caught Ctrl-C, goodbye")
+    print("Caught Ctrl-C, goodbye.")
     time.sleep(0.5)
     cls()
