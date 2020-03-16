@@ -8,13 +8,13 @@ import tkinter as tk
 from console import fg, bg, fx
 from console.utils import cls, set_title
 
-
-#-CONFIGURATION------------------------------------------------------------------------------------
+# -CONFIGURATION------------------------------------------------------------------------------------
 
 OS = None
 windows = "Windows"
 linux = "Linux"
-color_random = [fg.blue, fg.cyan, fg.green, fg.lightblue, fg.lightcyan, fg.lightgreen, fg.lightpurple, fg.lightred, fg.purple, fg.red, fg.yellow]
+color_random = [fg.blue, fg.cyan, fg.green, fg.lightblue, fg.lightcyan, fg.lightgreen, fg.lightpurple, fg.lightred,
+                fg.purple, fg.red, fg.yellow]
 random.shuffle(color_random)
 spacer = "  "
 climeLogo = spacer + "________/\\\\\\\\\\\\\\\\\\__/\\\\\\______________/\\\\\\\\\\\\\\\\\\\\\\__/\\\\\\\\____________/\\\\\\\\__/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_        \n" + spacer + "_____/\\\\\\////////__\\/\\\\\\_____________\\/////\\\\\\///__\\/\\\\\\\\\\\\________/\\\\\\\\\\\\_\\/\\\\\\///////////__       \n" + spacer + " ___/\\\\\\/___________\\/\\\\\\_________________\\/\\\\\\_____\\/\\\\\\//\\\\\\____/\\\\\\//\\\\\\_\\/\\\\\\_____________      \n" + spacer + "  __/\\\\\\_____________\\/\\\\\\_________________\\/\\\\\\_____\\/\\\\\\\\///\\\\\\/\\\\\\/_\\/\\\\\\_\\/\\\\\\\\\\\\\\\\\\\\\\_____     \n" + spacer + "   _\\/\\\\\\_____________\\/\\\\\\_________________\\/\\\\\\_____\\/\\\\\\__\\///\\\\\\/___\\/\\\\\\_\\/\\\\\\///////______    \n" + spacer + "    _\\//\\\\\\____________\\/\\\\\\_________________\\/\\\\\\_____\\/\\\\\\____\\///_____\\/\\\\\\_\\/\\\\\\_____________   \n" + spacer + "     __\\///\\\\\\__________\\/\\\\\\_________________\\/\\\\\\_____\\/\\\\\\_____________\\/\\\\\\_\\/\\\\\\_____________  \n" + spacer + "      ____\\////\\\\\\\\\\\\\\\\\\_\\/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\__/\\\\\\\\\\\\\\\\\\\\\\_\\/\\\\\\_____________\\/\\\\\\_\\/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_ \n" + spacer + "       _______\\/////////__\\///////////////__\\///////////__\\///______________\\///__\\///////////////__\n"
@@ -33,15 +33,17 @@ ________/\\\\\\\\\__/\\\______________/\\\\\\\\\\\__/\\\\____________/\\\\__/\\\
 climePrompt = fg.green + "clime" + fg.white + ":" + fg.blue + "~" + fg.white + "$ " + fx.end
 
 
-#-CLASSES------------------------------------------------------------------------------------------
+# -CLASSES------------------------------------------------------------------------------------------
 
-class myThread(threading.Thread):
+class MyThread(threading.Thread):
     def __init__(self, text):
         threading.Thread.__init__(self)
         self.shouldStop = False
         self.text = text
-    def disable_event(x):
+
+    def disable_event(self, x):
         pass
+
     def run(self):
         t = tk.Tk()
         t.bind("<Control-c>", lambda x: self.kill())
@@ -54,39 +56,44 @@ class myThread(threading.Thread):
         while not self.shouldStop:
             t.update_idletasks()
             t.update()
+
     def stop(self):
         self.shouldStop = True
+
     def kill(self):
         self.stop()
         exit()
 
+
 class Quiz:
     def __init__(self, questions):
         self.questions = questions
-    
-    def run(self, runUntilAced=True):
+
+    def run(self, run_until_aced=True):
         while True:
             wrong = {}
-            
+
             for question in self.questions:
-                # question.setFeedback(lambda theirAnswer: wrong.update({self.questions.index(question), theirAnswer}))
-                question.setFeedback(lambda theirAnswer, correctAnswers: wrong.update({self.questions.index(question): (theirAnswer, correctAnswers)}))
-                wasCorrect = question.run()
+                # question.set_feedback(lambda their_answer: wrong.update({self.questions.index(question), their_answer}))
+                question.set_feedback(lambda their_answer, correct_answers: wrong.update(
+                    {self.questions.index(question): (their_answer, correct_answers)}))
+                was_correct = question.run()
 
             for question in wrong.items():
                 number = question[0] + 1
-                theirWrongAnswer = question[1][0]
-                correctAnswer = question[1][1][0]
+                their_wrong_answer = question[1][0]
+                correct_answer = question[1][1][0]
                 print()
                 print("Question #" + str(number))
-                print("  Wrong answer: " + theirWrongAnswer)
-                print("Correct answer: " + correctAnswer)
+                print("  Wrong answer: " + their_wrong_answer)
+                print("Correct answer: " + correct_answer)
 
             score = len(self.questions) - len(wrong)
             print()
-            print("You got " + str(score) + " out of " + str(len(self.questions)) + ", " + str(int(score / int(len(self.questions)) * 100)) + "%")
+            print("You got " + str(score) + " out of " + str(len(self.questions)) + ", " + str(
+                int(score / int(len(self.questions)) * 100)) + "%")
 
-            if runUntilAced and score != len(self.questions):
+            if run_until_aced and score != len(self.questions):
                 print()
                 input("Press enter to retry")
                 cls()
@@ -94,17 +101,18 @@ class Quiz:
                 input("Press enter to continue")
                 break
 
+
 class Question:
-    def __init__(self, prompt, answers, choices = [], feedback = None, askUntilCorrect = False):
+    def __init__(self, prompt, answers, choices=[], feedback=None, ask_until_correct=False):
         self.prompt = prompt
         self.answers = answers
         self.choices = choices
         self.feedback = feedback
-        self.askUntilCorrect = askUntilCorrect
-    
-    def setFeedback(self, feedback = None):
+        self.ask_until_correct = ask_until_correct
+
+    def set_feedback(self, feedback=None):
         self.feedback = feedback
-    
+
     def run(self):
         cls()
         print()
@@ -115,11 +123,11 @@ class Question:
                 option = chr(ord('A') + self.choices.index(choice))
                 print(spacer + fg.yellow + option + fg.white + ") " + choice + fx.end)
         print()
-        
+
         while True:
             given = input(climePrompt)
             answer = None
-            
+
             if len(self.choices) > 0:
                 if len(given) != 1:
                     print("You need to give a single letter answer.")
@@ -131,30 +139,31 @@ class Question:
                 answer = self.choices[answer]
             else:
                 answer = given
-            
+
             correct = answer in self.answers
             if not correct:
-                if self.feedback != None:
+                if self.feedback is not None:
                     if self.feedback.__code__.co_argcount == 1:
                         self.feedback(answer)
                     else:
                         self.feedback(answer, self.answers)
-                if self.askUntilCorrect:
+                if self.ask_until_correct:
                     continue
             print()
             return correct
 
 
-#-GLOBAL FUNCTIONS---------------------------------------------------------------------------------
+# -GLOBAL FUNCTIONS---------------------------------------------------------------------------------
 
-def exit():
+def exit_clime():
     print()
     print(spacer + color_random[0] + "Thanks for using CLIME!" + fx.end)
     time.sleep(0.5)
     cls()
     sys.exit()
 
-def getChoice(choices):
+
+def get_choice(choices):
     print()
     while True:
         print(climePrompt, end="")
@@ -163,28 +172,30 @@ def getChoice(choices):
         if choice in choices:
             return choice
 
-def selectOS():
-        cls()
-        set_title("CLIME - Select an Operating System")
-        print()
-        print(color_random[0] + spacer + "Select the operating system you would like to learn:\n" + fx.end)
-        print(spacer + fg.yellow + " 1" + fg.white + ") Linux" + fx.end)
-        print(spacer + fg.yellow + " 2" + fg.white + ") Windows" + fx.end)
-        print(spacer + fg.yellow + "99" + fg.white + ") Main Menu" + fx.end)
 
-        choice = getChoice(["1", "2", "99"])
+def select_os():
+    cls()
+    set_title("CLIME - Select an Operating System")
+    print()
+    print(color_random[0] + spacer + "Select the operating system you would like to learn:\n" + fx.end)
+    print(spacer + fg.yellow + " 1" + fg.white + ") Linux" + fx.end)
+    print(spacer + fg.yellow + " 2" + fg.white + ") Windows" + fx.end)
+    print(spacer + fg.yellow + "99" + fg.white + ") Main Menu" + fx.end)
 
-        global OS
-        if choice == "1":
-            OS = linux
-            levelSelect()
-        elif choice == "2":
-            OS = windows
-            levelSelect()
-        elif choice == "99":
-            mainMenu()
+    choice = get_choice(["1", "2", "99"])
 
-def levelSelect():
+    global OS
+    if choice == "1":
+        OS = linux
+        level_select()
+    elif choice == "2":
+        OS = windows
+        level_select()
+    elif choice == "99":
+        main_menu()
+
+
+def level_select():
     cls()
     set_title("CLIME - Level Select")
     print(color_random[0] + "\n" + spacer + "Level Selection:\n" + fx.end)
@@ -193,7 +204,7 @@ def levelSelect():
     print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: description" + fx.end)
     print(spacer + fg.yellow + "99" + fg.white + ") Main Menu" + fx.end)
 
-    choice = getChoice(["1", "2", "3", "99"])
+    choice = get_choice(["1", "2", "3", "99"])
 
     if choice == "1":
         level1()
@@ -202,15 +213,17 @@ def levelSelect():
     elif choice == "3":
         level3()
     elif choice == "99":
-        mainMenu()
+        main_menu()
+
 
 def start():
     cls()
     set_title("CLIME - Start")
-    selectOS()
-    levelSelect()
+    select_os()
+    level_select()
 
-def mainMenu():
+
+def main_menu():
     cls()
     set_title("CLIME - Main Menu")
     print()
@@ -221,26 +234,26 @@ def mainMenu():
     print(spacer + fg.yellow + " 1" + fg.white + ") Start" + fx.end)
     print(spacer + fg.yellow + "99" + fg.white + ") Exit" + fx.end)
 
-    choice = getChoice(["1", "99", "0"])
+    choice = get_choice(["1", "99", "0"])
 
     if choice == "1":
         start()
     elif choice == "99" or choice == "0":
-        exit()
+        exit_clime()
 
 
-#-LEVEL INSTRUCTIONS-------------------------------------------------------------------------------
+# -LEVEL INSTRUCTIONS-------------------------------------------------------------------------------
 
 L1Text = "LEVEL 1 \n line 1 text \n line 2 text \n line 3 text"
 L2Text = "LEVEL 2 \n line 1 text \n line 2 text \n line 3 text"
 L3Text = "LEVEL 3 \n line 1 text \n line 2 text \n line 3 text"
 
 
-#-LEVELS-------------------------------------------------------------------------------------------
+# -LEVELS-------------------------------------------------------------------------------------------
 
 def level1():
-    L1I = myThread(L1Text)
-    L1I.start()
+    l1i = MyThread(L1Text)
+    l1i.start()
     cls()
     set_title("CLIME - Level 1")
     if OS == windows:
@@ -251,12 +264,13 @@ def level1():
         for exercise in LL1Exercises:
             exercise.run()
         LQuiz1.run()
-    L1I.stop()
+    l1i.stop()
     level2()
 
+
 def level2():
-    L2I = myThread(L2Text)
-    L2I.start()
+    l2i = MyThread(L2Text)
+    l2i.start()
     cls()
     set_title("CLIME - Level 2")
     if OS == windows:
@@ -265,14 +279,15 @@ def level2():
         WQuiz2.run()
     elif OS == linux:
         for exercise in LL2Exercises:
-            exercise.run()  
-        LQuiz2.run()  
-    L2I.stop()
+            exercise.run()
+        LQuiz2.run()
+    l2i.stop()
     level3()
 
+
 def level3():
-    L3I = myThread(L3Text)
-    L3I.start()
+    l3i = MyThread(L3Text)
+    l3i.start()
     cls()
     set_title("CLIME - Level 3")
     if OS == windows:
@@ -283,48 +298,71 @@ def level3():
         for exercise in LL3Exercises:
             exercise.run()
         LQuiz1.run()
-    L3I.stop()
+    l3i.stop()
     cls()
     print()
     print(spacer + color_random[0] + "End of program." + fx.end)
     time.sleep(1)
-    mainMenu()
+    main_menu()
 
 
-#-EXERCISES----------------------------------------------------------------------------------------
+# -EXERCISES----------------------------------------------------------------------------------------
 
-# Question(prompt, answers, choices, feedback=lambda theirAnswer: print(theirAnswer))
-# Question(prompt, answers, choices, feedback=lambda theirAnswer: feedback(theirAnswer, "A"))
-# Question(prompt, answers, choices, feedback=lambda theirAnswer, correctAnswers: feedback(theirAnswer, correctAnswers))
+# Question(prompt, answers, choices, feedback=lambda their_answer: print(their_answer))
+# Question(prompt, answers, choices, feedback=lambda their_answer: feedback(their_answer, "A"))
+# Question(prompt, answers, choices, feedback=lambda their_answer, correctAnswers: feedback(their_answer, correctAnswers))
 
-LL1E1 = Question("Linux Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
-LL1E2 = Question("Linux Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
+LL1E1 = Question("Linux Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"],
+                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
+                 ask_until_correct=True)
+LL1E2 = Question("Linux Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"],
+                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
+                 ask_until_correct=True)
 
 LL1Exercises = [LL1E1, LL1E2]
 
-LL2E1 = Question("Linux Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
-LL2E2 = Question("Linux Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
+LL2E1 = Question("Linux Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"],
+                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
+                 ask_until_correct=True)
+LL2E2 = Question("Linux Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"],
+                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
+                 ask_until_correct=True)
 
 LL2Exercises = [LL2E1, LL2E2]
 
-LL3E1 = Question("Linux Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
-LL3E2 = Question("Linux Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
+LL3E1 = Question("Linux Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"],
+                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
+                 ask_until_correct=True)
+LL3E2 = Question("Linux Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"],
+                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
+                 ask_until_correct=True)
 LL3Exercises = [LL3E1, LL3E2]
 
-WL1E1 = Question("Windows Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
-WL1E2 = Question("Windows Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
+WL1E1 = Question("Windows Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"],
+                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
+                 ask_until_correct=True)
+WL1E2 = Question("Windows Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"],
+                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
+                 ask_until_correct=True)
 WL1Exercises = [WL1E1, WL1E2]
 
-WL2E1 = Question("Windows Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
-WL2E2 = Question("Windows Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
+WL2E1 = Question("Windows Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"],
+                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
+                 ask_until_correct=True)
+WL2E2 = Question("Windows Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"],
+                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
+                 ask_until_correct=True)
 WL2Exercises = [WL2E1, WL2E2]
 
-WL3E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
-WL3E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda theirAnswer, correct: print(theirAnswer, "is wrong,", correct, "is correct"), askUntilCorrect=True)
+WL3E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"],
+                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
+                 ask_until_correct=True)
+WL3E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"],
+                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
+                 ask_until_correct=True)
 WL3Exercises = [WL3E1, WL3E2]
 
-
-#-QUIZZES------------------------------------------------------------------------------------------
+# -QUIZZES------------------------------------------------------------------------------------------
 
 # Question("Question prompt", ["Correct answer"], ["Answer choice 1", "Answer choice 2", "Answer choice 3", "Answer choice 4"]),
 # Question("Question prompt", ["Correct answer", "Other correct answer"], ["Answer choice 1", "Answer choice 2", "Answer choice 3", "Answer choice 4"]),
@@ -371,20 +409,19 @@ LQuiz3 = Quiz([
     Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
 ])
 
-
-#-FEEDBACK-----------------------------------------------------------------------------------------
+# -FEEDBACK-----------------------------------------------------------------------------------------
 
 # Useless section until lambda calls methods here
 
-#def feedback2(answer, correct):
+# def feedback2(answer, correct):
 #    print("\n" + answer + " is wrong, " + str(correct) + " is correct.")
 
 
-#-PROGRAM START------------------------------------------------------------------------------------
+# -PROGRAM START------------------------------------------------------------------------------------
 
 try:
     while True:
-        mainMenu()
+        main_menu()
 except (KeyboardInterrupt, EOFError) as e:
     print("Caught Ctrl-C, goodbye.")
     time.sleep(0.5)
