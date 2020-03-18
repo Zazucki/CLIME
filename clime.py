@@ -244,6 +244,8 @@ def main_menu():
 
 # -LEVEL INSTRUCTIONS-------------------------------------------------------------------------------
 
+# These variables will soon be converted to import their data from text files.
+
 L1Text = "LEVEL 1 \n line 1 text \n line 2 text \n line 3 text"
 L2Text = "LEVEL 2 \n line 1 text \n line 2 text \n line 3 text"
 L3Text = "LEVEL 3 \n line 1 text \n line 2 text \n line 3 text"
@@ -363,7 +365,7 @@ WL3E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "te
 WL3Exercises = [WL3E1, WL3E2]
 
 # -QUIZZES------------------------------------------------------------------------------------------
-
+# Examples:
 # Question("Question prompt", ["Correct answer"], ["Answer choice 1", "Answer choice 2", "Answer choice 3", "Answer choice 4"]),
 # Question("Question prompt", ["Correct answer", "Other correct answer"], ["Answer choice 1", "Answer choice 2", "Answer choice 3", "Answer choice 4"]),
 
@@ -411,7 +413,7 @@ LQuiz3 = Quiz([
 
 # -FEEDBACK-----------------------------------------------------------------------------------------
 
-# Useless section until lambda calls methods here
+# Useless section until the feedback lambdas call methods here
 
 # def feedback2(answer, correct):
 #    print("\n" + answer + " is wrong, " + str(correct) + " is correct.")
