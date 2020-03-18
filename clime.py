@@ -8,7 +8,7 @@ import tkinter as tk
 from console import fg, bg, fx
 from console.utils import cls, set_title
 
-# -CONFIGURATION------------------------------------------------------------------------------------
+# -CONFIGURATION-----------------------------------------------------------------------------------
 
 OS = None
 windows = "Windows"
@@ -33,7 +33,7 @@ ________/\\\\\\\\\__/\\\______________/\\\\\\\\\\\__/\\\\____________/\\\\__/\\\
 climePrompt = fg.green + "clime" + fg.white + ":" + fg.blue + "~" + fg.white + "$ " + fx.end
 
 
-# -CLASSES------------------------------------------------------------------------------------------
+# -CLASSES-----------------------------------------------------------------------------------------
 
 class MyThread(threading.Thread):
     def __init__(self, text):
@@ -153,9 +153,11 @@ class Question:
             return correct
 
 
-# -GLOBAL FUNCTIONS---------------------------------------------------------------------------------
+# -GLOBAL FUNCTIONS--------------------------------------------------------------------------------
 
 def exit_clime():
+    for level in levels:
+        level.stop()
     print()
     print(spacer + color_random[0] + "Thanks for using CLIME!" + fx.end)
     time.sleep(0.5)
@@ -242,7 +244,7 @@ def main_menu():
         exit_clime()
 
 
-# -LEVEL INSTRUCTIONS-------------------------------------------------------------------------------
+# -LEVEL INSTRUCTIONS------------------------------------------------------------------------------
 
 # These variables will soon be converted to import their data from text files.
 
@@ -251,10 +253,13 @@ L2Text = "LEVEL 2 \n line 1 text \n line 2 text \n line 3 text"
 L3Text = "LEVEL 3 \n line 1 text \n line 2 text \n line 3 text"
 
 
-# -LEVELS-------------------------------------------------------------------------------------------
+# -LEVELS------------------------------------------------------------------------------------------
+
+levels = []
 
 def level1():
     l1i = MyThread(L1Text)
+    levels.append(l1i)
     l1i.start()
     cls()
     set_title("CLIME - Level 1")
@@ -272,6 +277,7 @@ def level1():
 
 def level2():
     l2i = MyThread(L2Text)
+    levels.append(l2i)
     l2i.start()
     cls()
     set_title("CLIME - Level 2")
@@ -289,6 +295,7 @@ def level2():
 
 def level3():
     l3i = MyThread(L3Text)
+    levels.append(l3i)
     l3i.start()
     cls()
     set_title("CLIME - Level 3")
@@ -308,7 +315,7 @@ def level3():
     main_menu()
 
 
-# -EXERCISES----------------------------------------------------------------------------------------
+# -EXERCISES---------------------------------------------------------------------------------------
 
 # Question(prompt, answers, choices, feedback=lambda their_answer: print(their_answer))
 # Question(prompt, answers, choices, feedback=lambda their_answer: feedback(their_answer, "A"))
@@ -364,7 +371,7 @@ WL3E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "te
                  ask_until_correct=True)
 WL3Exercises = [WL3E1, WL3E2]
 
-# -QUIZZES------------------------------------------------------------------------------------------
+# -QUIZZES-----------------------------------------------------------------------------------------
 # Examples:
 # Question("Question prompt", ["Correct answer"], ["Answer choice 1", "Answer choice 2", "Answer choice 3", "Answer choice 4"]),
 # Question("Question prompt", ["Correct answer", "Other correct answer"], ["Answer choice 1", "Answer choice 2", "Answer choice 3", "Answer choice 4"]),
@@ -411,7 +418,7 @@ LQuiz3 = Quiz([
     Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
 ])
 
-# -FEEDBACK-----------------------------------------------------------------------------------------
+# -FEEDBACK----------------------------------------------------------------------------------------
 
 # Useless section until the feedback lambdas call methods here
 
@@ -419,12 +426,12 @@ LQuiz3 = Quiz([
 #    print("\n" + answer + " is wrong, " + str(correct) + " is correct.")
 
 
-# -PROGRAM START------------------------------------------------------------------------------------
+# -PROGRAM START-----------------------------------------------------------------------------------
 
 try:
     while True:
         main_menu()
 except (KeyboardInterrupt, EOFError) as e:
     print("Caught Ctrl-C, goodbye.")
-    time.sleep(0.5)
+    exit_clime()
     cls()
