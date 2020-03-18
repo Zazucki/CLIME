@@ -41,7 +41,7 @@ class MyThread(threading.Thread):
         self.shouldStop = False
         self.text = text
 
-    def disable_event(self, x):
+    def disable_event(self):
         pass
 
     def run(self):
