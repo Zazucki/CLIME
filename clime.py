@@ -345,54 +345,28 @@ def level3():
 # Question(prompt, answers, choices, feedback=lambda their_answer: feedback(their_answer, "A"))
 # Question(prompt, answers, choices, feedback=lambda their_answer, correctAnswers: feedback(their_answer, correctAnswers))
 
-LL1E1 = Question("Linux Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"],
-                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
-                 ask_until_correct=True)
-LL1E2 = Question("Linux Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"],
-                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
-                 ask_until_correct=True)
-
+LL1E1 = Question("Linux Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E2 = Question("Linux Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL1Exercises = [LL1E1, LL1E2]
 
-LL2E1 = Question("Linux Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"],
-                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
-                 ask_until_correct=True)
-LL2E2 = Question("Linux Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"],
-                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
-                 ask_until_correct=True)
-
+LL2E1 = Question("Linux Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL2E2 = Question("Linux Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL2Exercises = [LL2E1, LL2E2]
 
-LL3E1 = Question("Linux Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"],
-                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
-                 ask_until_correct=True)
-LL3E2 = Question("Linux Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"],
-                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
-                 ask_until_correct=True)
+LL3E1 = Question("Linux Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E2 = Question("Linux Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL3Exercises = [LL3E1, LL3E2]
 
-WL1E1 = Question("Windows Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"],
-                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
-                 ask_until_correct=True)
-WL1E2 = Question("Windows Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"],
-                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
-                 ask_until_correct=True)
+WL1E1 = Question("Windows Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL1E2 = Question("Windows Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 WL1Exercises = [WL1E1, WL1E2]
 
-WL2E1 = Question("Windows Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"],
-                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
-                 ask_until_correct=True)
-WL2E2 = Question("Windows Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"],
-                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
-                 ask_until_correct=True)
+WL2E1 = Question("Windows Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL2E2 = Question("Windows Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 WL2Exercises = [WL2E1, WL2E2]
 
-WL3E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"],
-                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
-                 ask_until_correct=True)
-WL3E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"],
-                 feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"),
-                 ask_until_correct=True)
+WL3E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL3E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 WL3Exercises = [WL3E1, WL3E2]
 
 # -QUIZZES-----------------------------------------------------------------------------------------
