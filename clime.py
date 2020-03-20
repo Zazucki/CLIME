@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """Command Line Made Easy"""
 import sys
+import os
 import random
 import time
 import threading
@@ -246,11 +247,22 @@ def main_menu():
 
 # -LEVEL INSTRUCTIONS------------------------------------------------------------------------------
 
-# These variables will soon be converted to import their data from text files.
+linuxText = []
+windowsText = []
 
-L1Text = "LEVEL 1 \n line 1 text \n line 2 text \n line 3 text"
-L2Text = "LEVEL 2 \n line 1 text \n line 2 text \n line 3 text"
-L3Text = "LEVEL 3 \n line 1 text \n line 2 text \n line 3 text"
+linDir = "levels/linux"
+for filename in os.listdir(linDir):
+    file = os.path.join(linDir, filename)
+    with open(file, 'r') as myfile:
+        data = myfile.read()
+        linuxText.append(data)
+
+winDir = "levels/windows"
+for filename in os.listdir(winDir):
+    file = os.path.join(winDir, filename)
+    with open(file, 'r') as myfile:
+        data = myfile.read()
+        windowsText.append(data)
 
 
 # -LEVELS------------------------------------------------------------------------------------------
@@ -258,16 +270,20 @@ L3Text = "LEVEL 3 \n line 1 text \n line 2 text \n line 3 text"
 levels = []
 
 def level1():
-    l1i = MyThread(L1Text)
-    levels.append(l1i)
-    l1i.start()
-    cls()
     set_title("CLIME - Level 1")
     if OS == windows:
+        l1i = MyThread(windowsText[0])
+        levels.append(l1i)
+        l1i.start()
+        cls()
         for exercise in WL1Exercises:
             exercise.run()
         WQuiz1.run()
     elif OS == linux:
+        l1i = MyThread(linuxText[0])
+        levels.append(l1i)
+        l1i.start()
+        cls()
         for exercise in LL1Exercises:
             exercise.run()
         LQuiz1.run()
@@ -276,16 +292,20 @@ def level1():
 
 
 def level2():
-    l2i = MyThread(L2Text)
-    levels.append(l2i)
-    l2i.start()
-    cls()
     set_title("CLIME - Level 2")
     if OS == windows:
+        l2i = MyThread(windowsText[1])
+        levels.append(l2i)
+        l2i.start()
+        cls()
         for exercise in WL2Exercises:
             exercise.run()
         WQuiz2.run()
     elif OS == linux:
+        l2i = MyThread(linuxText[1])
+        levels.append(l2i)
+        l2i.start()
+        cls()
         for exercise in LL2Exercises:
             exercise.run()
         LQuiz2.run()
@@ -294,16 +314,20 @@ def level2():
 
 
 def level3():
-    l3i = MyThread(L3Text)
-    levels.append(l3i)
-    l3i.start()
-    cls()
     set_title("CLIME - Level 3")
     if OS == windows:
+        l3i = MyThread(windowsText[2])
+        levels.append(l3i)
+        l3i.start()
+        cls()
         for exercise in WL3Exercises:
             exercise.run()
         WQuiz2.run()
     elif OS == linux:
+        l3i = MyThread(windowsText[2])
+        levels.append(l3i)
+        l3i.start()
+        cls()
         for exercise in LL3Exercises:
             exercise.run()
         LQuiz1.run()
