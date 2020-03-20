@@ -86,7 +86,7 @@ class Quiz:
                 correct_answer = question[1][1][0]
                 print()
                 print("Question #" + str(number))
-                print("  Wrong answer: " + their_wrong_answer)
+                print("   Your answer: " + their_wrong_answer)
                 print("Correct answer: " + correct_answer)
 
             score = len(self.questions) - len(wrong)
