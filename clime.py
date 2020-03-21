@@ -53,6 +53,8 @@ class MyThread(threading.Thread):
         instruction = tk.Text(t)
         instruction.pack()
         instruction.insert(tk.END, self.text)
+#       instruction.configure(bg=black)
+#       instruction.configure(fg=white)
         instruction.configure(state="disabled")
         while not self.shouldStop:
             t.update_idletasks()
@@ -357,7 +359,7 @@ def level4():
     level5()
 
 
-    def level5():
+def level5():
     set_title("CLIME - Level 5")
     if OS == windows:
         l5i = MyThread(windowsText[4])
