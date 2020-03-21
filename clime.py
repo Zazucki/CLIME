@@ -332,12 +332,55 @@ def level3():
             exercise.run()
         LQuiz1.run()
     l3i.stop()
+    level4()
+
+
+def level4():
+    set_title("CLIME - Level 4")
+    if OS == windows:
+        l4i = MyThread(windowsText[3])
+        levels.append(l4i)
+        l4i.start()
+        cls()
+        for exercise in WL4Exercises:
+            exercise.run()
+        WQuiz4.run()
+    elif OS == linux:
+        l4i = MyThread(linuxText[3])
+        levels.append(l4i)
+        l4i.start()
+        cls()
+        for exercise in LL4Exercises:
+            exercise.run()
+        LQuiz4.run()
+    l4i.stop()
+    level5()
+
+
+    def level5():
+    set_title("CLIME - Level 5")
+    if OS == windows:
+        l5i = MyThread(windowsText[4])
+        levels.append(l5i)
+        l5i.start()
+        cls()
+        for exercise in WL5Exercises:
+            exercise.run()
+        WQuiz5.run()
+    elif OS == linux:
+        l5i = MyThread(linuxText[4])
+        levels.append(l5i)
+        l5i.start()
+        cls()
+        for exercise in LL5Exercises:
+            exercise.run()
+        LQuiz5.run()
+    l5i.stop()
     cls()
     print()
     print(spacer + color_random[0] + "End of program." + fx.end)
     time.sleep(1)
     main_menu()
-
 
 # -EXERCISES---------------------------------------------------------------------------------------
 
@@ -359,11 +402,11 @@ LL3Exercises = [LL3E1, LL3E2]
 
 LL4E1 = Question("Change your directory to be in your desktop folder (home folder if N/A)", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL4E2 = Question("Change your directory to home without using ~ ", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3Exercises = [LL3E1, LL3E2]
+LL4Exercises = [LL4E1, LL4E2]
 
 LL5E1 = Question("Print out your computer hostname", ["uname -n", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL5E2 = Question("Print out your kernel version", ["unmae -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-WL1Exercises = [WL1E1, WL1E2]
+LL5Exercises = [LL5E1, LL5E2]
 
 WL1E1 = Question("Windows Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 WL1E2 = Question("Windows Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
@@ -377,31 +420,18 @@ WL3E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "te
 WL3E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 WL3Exercises = [WL3E1, WL3E2]
 
+WL4E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL4E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL4Exercises = [WL4E1, WL4E2]
+
+WL5E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL5E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL5Exercises = [WL5E1, WL5E2]
+
 # -QUIZZES-----------------------------------------------------------------------------------------
 # Examples:
 # Question("Question prompt", ["Correct answer"], ["Answer choice 1", "Answer choice 2", "Answer choice 3", "Answer choice 4"]),
 # Question("Question prompt", ["Correct answer", "Other correct answer"], ["Answer choice 1", "Answer choice 2", "Answer choice 3", "Answer choice 4"]),
-
-WQuiz1 = Quiz([
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-])
-
-WQuiz2 = Quiz([
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-])
-
-WQuiz3 = Quiz([
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-])
 
 LQuiz1 = Quiz([
     Question("Does ls -f and ls -F output the same result?", ["True"], ["True", "False", "Answer 3", "Answer 4"]),
@@ -436,6 +466,41 @@ LQuiz5 = Quiz([
     Question("Which of the following prints your platforms hardware?", ["-i"], ["-i", "-o", "-m", "-s"]),
     Question("Which of the following prints your kernel name?", ["-s"], ["-o", "-s", "-n", "-a"]),
     Question("Which of the following is not a valid option of uname?", ["-z"], ["-a", "-s", "-v", "-z"]),
+])
+
+WQuiz1 = Quiz([
+    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+])
+
+WQuiz2 = Quiz([
+    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+])
+
+WQuiz3 = Quiz([
+    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+])
+
+WQuiz4 = Quiz([
+    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+])
+
+WQuiz5 = Quiz([
+    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
 ])
 
 # -FEEDBACK----------------------------------------------------------------------------------------
