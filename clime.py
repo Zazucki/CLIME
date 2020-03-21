@@ -345,17 +345,25 @@ def level3():
 # Question(prompt, answers, choices, feedback=lambda their_answer: feedback(their_answer, "A"))
 # Question(prompt, answers, choices, feedback=lambda their_answer, correctAnswers: feedback(their_answer, correctAnswers))
 
-LL1E1 = Question("Linux Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL1E2 = Question("Linux Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E1 = Question("Print out the list in your home directory in long format.", ["ls -a", "ls- l"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E2 = Question("Print out the list one entry per line.", ["ls -o", "ls- 1"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL1Exercises = [LL1E1, LL1E2]
 
-LL2E1 = Question("Linux Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL2E2 = Question("Linux Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL2E1 = Question("Does mv work silently?", ["True", "False"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL2E2 = Question("Move your temp.py file from one directory to another", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL2Exercises = [LL2E1, LL2E2]
 
-LL3E1 = Question("Linux Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E2 = Question("Linux Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E1 = Question("Remove the temp.py file from your documents folder.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E2 = Question("Try to remove a directory from your files.", ["rm cannot do it", "rmdir"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL3Exercises = [LL3E1, LL3E2]
+
+LL4E1 = Question("Change your directory to be in your desktop folder (home folder if N/A)", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL4E2 = Question("Change your directory to home without using ~ ", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3Exercises = [LL3E1, LL3E2]
+
+LL5E1 = Question("Print out your computer hostname", ["uname -n", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL5E2 = Question("Print out your kernel version", ["unmae -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL1Exercises = [WL1E1, WL1E2]
 
 WL1E1 = Question("Windows Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 WL1E2 = Question("Windows Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
@@ -396,24 +404,38 @@ WQuiz3 = Quiz([
 ])
 
 LQuiz1 = Quiz([
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Does ls -f and ls -F output the same result?", ["True"], ["True", "False", "Answer 3", "Answer 4"]),
+    Question("Which option prints out in human readable format (numbers)", ["ls -h"], ["ls -t", "ls -l", "ls -1", "ls -h"]),
+    Question("Can you make ls print in multiple entries", ["True"], ["True", "False", "Answer 3", "Answer 4"]),
+    Question("How will you List files from a directory?", ["ls"], ["pwd", "cd", "ls", "ls -a"]),
 ])
 
 LQuiz2 = Quiz([
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("What is the syntax for moving a file?", ["mv [option] source destination"], ["mv [option] source destination", "mv [option] destination source", "mv [option] source", "mv [option] destination"]),
+    Question("What does mv command do?", ["moves group of files to a different directory "], ["renames working path", "deletes items ", "moves group of files to a different directory", "deletes directories"]),
+    Question("what command works hand and hand with mv", ["rm"], ["ip", "rm", "ls", "pwd"]),
+    Question("Which command is used for renaming files?", ["mv"], ["rename", "mv", "cp", "move"]),
 ])
 
 LQuiz3 = Quiz([
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("What does rm stand for? ", ["remove"], ["remember", "remove", "revoke", "return"]),
+    Question("What is the proper syntax for using the rm command?", ["rm [option]... FILE..."], ["rm [option]... FILE...", "rm ...FILE [option]..", "rm", "rm .... [option]"]),
+    Question("rm command gives a warning before deletion of a file.", ["False"], ["True", "False", "Answer 3", "Answer 4"]),
+    Question("Which command is used for removing file named -file.txt?", ["rm — -file.txt"], ["Answer 1", "Answer 2", "rm — -file.txt", "rm -f file.txt"]),
+])
+
+LQuiz4 = Quiz([
+    Question("Which of the following are not options in cd command? ", ["."], [".", "..", "~", "dir name"]),
+    Question("Where does ~ option move your directory to?", ["home"], ["back one", "home", "desktop", "root"]),
+    Question("True or False, does cd and cd ~ output the same thing?", ["True"], ["True", "False", "Answer 3", "Answer 4"]),
+    Question("cd command cannot be used without any argument.", ["True"], ["True", "False", "Answer 3", "Answer 4"]),
+])
+
+LQuiz5 = Quiz([
+    Question("Which of the following options prints your operating system.", ["-o"], ["-s", "-n", "-r", "-o"]),
+    Question("Which of the following prints your platforms hardware?", ["-i"], ["-i", "-o", "-m", "-s"]),
+    Question("Which of the following prints your kernel name?", ["-s"], ["-o", "-s", "-n", "-a"]),
+    Question("Which of the following is not a valid option of uname?", ["-z"], ["-a", "-s", "-v", "-z"]),
 ])
 
 # -FEEDBACK----------------------------------------------------------------------------------------
