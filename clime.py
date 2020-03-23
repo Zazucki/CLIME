@@ -445,7 +445,7 @@ LQuiz1 = Quiz([
 LQuiz2 = Quiz([
     Question("What is the syntax for moving a file?", ["mv [option] source destination"], ["mv [option] source destination", "mv [option] destination source", "mv [option] source", "mv [option] destination"]),
     Question("What does mv command do?", ["moves group of files to a different directory "], ["renames working path", "deletes items ", "moves group of files to a different directory", "deletes directories"]),
-    Question("what command works hand and hand with mv", ["rm"], ["ip", "rm", "ls", "pwd"]),
+    Question("What command works hand and hand with mv", ["rm"], ["ip", "rm", "ls", "pwd"]),
     Question("Which command is used for renaming files?", ["mv"], ["rename", "mv", "cp", "move"]),
 ])
 
