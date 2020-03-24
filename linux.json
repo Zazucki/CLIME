@@ -1,9 +1,9 @@
 {
   "level1": {
-    "c1": "The command ls prints out current working directory and the files within it.\nls has many options that will list different files, directories, and information.\nBelow are the options listed with what each option ( IE ls -a, ls -f) does.\n",
-    "c2": "level 1 e2\nline2",
-    "c3": "level 1 e3\nline2",
-    "c4": "level 1 e4\nline2",
+    "e1": "The command ls prints out current working directory and the files within it.\nls has many options that will list different files, directories, and information.\nBelow are the options listed with what each option ( IE ls -a, ls -f) does.\n",
+    "e2": "level 1 e2\nline2",
+    "e3": "level 1 e3\nline2",
+    "e4": "level 1 e4\nline2",
     "e5": "level 1 e5\nline2",
     "e6": "level 1 e6\nline2",
     "e7": "level 1 e7\nline2",
