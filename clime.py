@@ -207,6 +207,8 @@ def level_select():
     print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: description" + fx.end)
     print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: description" + fx.end)
     print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: description" + fx.end)
+    print(spacer + fg.yellow + " 4" + fg.white + ") Level 4: description" + fx.end)
+    print(spacer + fg.yellow + " 5" + fg.white + ") Level 5: description" + fx.end)
     print(spacer + fg.yellow + "99" + fg.white + ") Main Menu" + fx.end)
 
     choice = get_choice(["1", "2", "3", "99"])
@@ -217,6 +219,10 @@ def level_select():
         level2()
     elif choice == "3":
         level3()
+    elif choice == "4":
+        level4()
+    elif choice == "5":
+        level5()
     elif choice == "99":
         main_menu()
 
@@ -392,14 +398,14 @@ def level5():
 
 LL1E1 = Question("Print out the list in your home directory in long format.", ["a. ls -a", "b. ls- l"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL1E2 = Question("Print out the list one entry per line.", ["a. ls -o", "b. ls- 1"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E3 = Question("Change your directory to be in your desktop folder (home folder if N/A)", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E4 = Question("Change your directory to home without using ~", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E5 = Question("Print out your logical path.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E6 = Question("Print out your physical path.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E7 = Question("Print out your computer hostname ", ["uname -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E8 = Question("Print out your kernel version", ["uname -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E9 = Question("Print chmod +rx with and without sudo as the prefix and discover the differences", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E10 = Question("Print sudo -V and explain what has been printed", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E3 = Question("Change your directory to be in your desktop folder (home folder if N/A)", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E4 = Question("Change your directory to home without using ~", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E5 = Question("Print out your logical path.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E6 = Question("Print out your physical path.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E7 = Question("Print out your computer hostname ", ["uname -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E8 = Question("Print out your kernel version", ["uname -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E9 = Question("Print chmod +rx with and without sudo as the prefix and discover the differences", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E10 = Question("Print sudo -V and explain what has been printed", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL1Exercises = [LL1E1, LL1E2, LL1E3, LL1E4, LL1E5, LL1E6, LL1E7, LL1E8, LL1E9, LL1E10]
 
 LL2E1 = Question("Does mv work silently?", ["True", "False"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
@@ -425,8 +431,6 @@ LL3E8 = Question("Enter the syntax to backup a parition", ["# dd if=/dev/hda1 of
 LL3E9 = Question("Display the output of the option -file.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL3E10 = Question("Display your free space with the -k option and convert to GB.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL3Exercises = [LL3E1, LL3E2, LL3E3, LL3E4, LL3E5, LL3E6, LL3E7, LL3E8, LL3E9, LL3E10]
-
-
 
 
 WL1E1 = Question("Windows Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
@@ -488,6 +492,7 @@ LQuiz5 = Quiz([
     Question("Which of the following prints your kernel name?", ["-s"], ["-o", "-s", "-n", "-a"]),
     Question("Which of the following is not a valid option of uname?", ["-z"], ["-a", "-s", "-v", "-z"]),
 ])
+
 
 WQuiz1 = Quiz([
     Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
