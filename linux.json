@@ -1,6 +1,6 @@
 {
   "level1": {
-    "e1": "level 1 e1\nline2",
+    "e1": "The command ls(list) prints out current working directory and the files within it.\nls has many options that will list different files, directories, and information.\nBelow are the options listed with what each option ( IE ls -a, ls -f) does.\n",
     "e2": "level 1 e2\nline2",
     "e3": "level 1 e3\nline2",
     "e4": "level 1 e4\nline2",
