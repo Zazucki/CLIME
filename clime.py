@@ -451,14 +451,14 @@ LQuiz3 = Quiz([
     Question("Which permission allows to modify and delete?", ["Write"], ["Read", "Write", "Execute", "Group"]),
     Question("In my terminal I am trying to run an excuteable file, but it does not allow me to, what do I need?", ["Execute Access"], ["Read Access", "Excute Access", "Wrtie Access", "change the group I am"]),
     Question("Which command will change the ownership of file2 to joeClIMe?", ["chown joeClIMe file2"], ["chown change joeClIMe", "chown file2 joeClIMe", "file2 change joeClIMe", "chown joeClIMe file2"]),
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("You are able to backup a whole disk using dd.", ["True"], ["False", "True"]),
+    Question("It is not recommended to use dd if you are not familiar with your paritions or disk space.", ["True"], ["True", "False"]),
+    Question("To create a size of a backup the standard is GB.", ["False"], ["True", "False"]),
+    Question("How many primary and extended partitions are allowed on a hard disk?", ["4"], ["1", "2", "3", "4"]),
+    Question("Which of the following is not an option in df?", ["-type"], ["-type", "-P", "-h", "-a"]),
+    Question("Which option lets you view allocated space?", ["-h"], ["-k", "-h", "-t", "-P"]),
+    Question("Option -k and -h output similar results.", ["False"], ["True", "False"]),
+    Question("Which command displays the disk space utilized on mounted file systems?", ["df"], ["dd", "dl", "df", "dL"]),
 ])
 
 WQuiz1 = Quiz([
