@@ -4,7 +4,6 @@ import sys
 import os
 import random
 import time
-import json
 import threading
 import tkinter as tk
 from console import fg, bg, fx
@@ -249,11 +248,22 @@ def main_menu():
 
 # -LEVEL INSTRUCTIONS------------------------------------------------------------------------------
 
-with open("linux.json", "r") as read_file:
-    linuxText = json.load(read_file)
+linuxText = []
+windowsText = []
 
-with open("windows.json", "r") as read_file:
-    windowsText = json.load(read_file)
+linDir = "levels/linux"
+for filename in os.listdir(linDir):
+    file = os.path.join(linDir, filename)
+    with open(file, 'r') as myfile:
+        data = myfile.read()
+        linuxText.append(data)
+
+winDir = "levels/windows"
+for filename in os.listdir(winDir):
+    file = os.path.join(winDir, filename)
+    with open(file, 'r') as myfile:
+        data = myfile.read()
+        windowsText.append(data)
 
 
 # -LEVELS------------------------------------------------------------------------------------------
@@ -262,67 +272,111 @@ levels = []
 
 def level1():
     set_title("CLIME - Level 1")
-    if OS == linux:
-        l1i = MyThread(linuxText["level1"]["e1"])
-        levels.append(l1i)
-        l1i.start()
-        cls()
-        for exercise in LL1Exercises:
-            exercise.run()
-        LQuiz1.run()
-    elif OS == windows:
-        l1i = MyThread(windowsText["level1"]["e1"])
+    if OS == windows:
+        l1i = MyThread(windowsText[0])
         levels.append(l1i)
         l1i.start()
         cls()
         for exercise in WL1Exercises:
             exercise.run()
         WQuiz1.run()
+    elif OS == linux:
+        l1i = MyThread(linuxText[0])
+        levels.append(l1i)
+        l1i.start()
+        cls()
+        for exercise in LL1Exercises:
+            exercise.run()
+        LQuiz1.run()
     l1i.stop()
     level2()
 
 
 def level2():
     set_title("CLIME - Level 2")
-    if OS == linux:
-        l2i = MyThread(linuxText["level2"]["e1"])
-        levels.append(l2i)
-        l2i.start()
-        cls()
-        for exercise in LL2Exercises:
-            exercise.run()
-        LQuiz2.run()
-    elif OS == windows:
-        l2i = MyThread(windowsText["level2"]["e1"])
+    if OS == windows:
+        l2i = MyThread(windowsText[1])
         levels.append(l2i)
         l2i.start()
         cls()
         for exercise in WL2Exercises:
             exercise.run()
         WQuiz2.run()
+    elif OS == linux:
+        l2i = MyThread(linuxText[1])
+        levels.append(l2i)
+        l2i.start()
+        cls()
+        for exercise in LL2Exercises:
+            exercise.run()
+        LQuiz2.run()
     l2i.stop()
     level3()
 
 
 def level3():
     set_title("CLIME - Level 3")
-    if OS == linux:
-        l3i = MyThread(windowsText["level3"]["e1"])
-        levels.append(l3i)
-        l3i.start()
-        cls()
-        for exercise in LL3Exercises:
-            exercise.run()
-        LQuiz1.run()
-    elif OS == windows:
-        l3i = MyThread(windowsText["level3"]["e1"])
+    if OS == windows:
+        l3i = MyThread(windowsText[2])
         levels.append(l3i)
         l3i.start()
         cls()
         for exercise in WL3Exercises:
             exercise.run()
         WQuiz2.run()
+    elif OS == linux:
+        l3i = MyThread(windowsText[2])
+        levels.append(l3i)
+        l3i.start()
+        cls()
+        for exercise in LL3Exercises:
+            exercise.run()
+        LQuiz1.run()
     l3i.stop()
+    level4()
+
+
+def level4():
+    set_title("CLIME - Level 4")
+    if OS == windows:
+        l4i = MyThread(windowsText[3])
+        levels.append(l4i)
+        l4i.start()
+        cls()
+        for exercise in WL4Exercises:
+            exercise.run()
+        WQuiz4.run()
+    elif OS == linux:
+        l4i = MyThread(linuxText[3])
+        levels.append(l4i)
+        l4i.start()
+        cls()
+        for exercise in LL4Exercises:
+            exercise.run()
+        LQuiz4.run()
+    l4i.stop()
+    level5()
+
+
+def level5():
+    set_title("CLIME - Level 5")
+    if OS == windows:
+        l5i = MyThread(windowsText[4])
+        levels.append(l5i)
+        l5i.start()
+        cls()
+        for exercise in WL5Exercises:
+            exercise.run()
+        WQuiz5.run()
+    elif OS == linux:
+        l5i = MyThread(linuxText[4])
+        levels.append(l5i)
+        l5i.start()
+        cls()
+        for exercise in LL5Exercises:
+            exercise.run()
+        LQuiz5.run()
+    l5i.stop()
     cls()
     print()
     print(spacer + color_random[0] + "End of program." + fx.end)
@@ -335,8 +389,8 @@ def level3():
 # Question(prompt, answers, choices, feedback=lambda their_answer: feedback(their_answer, "A"))
 # Question(prompt, answers, choices, feedback=lambda their_answer, correctAnswers: feedback(their_answer, correctAnswers))
 
-LL1E1 = Question("Print out the list in your home directory in long format.", ["a. ls -a", "b. ls- l"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL1E2 = Question("Print out the list one entry per line.", ["a. ls -o", "b. ls- 1"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E1 = Question("Print out the list in your home directory in long format.", ["ls -a", "ls- l"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E2 = Question("Print out the list one entry per line.", [" ls -o", " ls- 1"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL1E3 = Question("Change your directory to be in your desktop folder (home folder if N/A)", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL1E4 = Question("Change your directory to home without using ~", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 LL1E5 = Question("Print out your logical path.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
@@ -372,6 +426,8 @@ LL3E10 = Question("Display your free space with the -k option and convert to GB.
 LL3Exercises = [LL3E1, LL3E2, LL3E3, LL3E4, LL3E5, LL3E6, LL3E7, LL3E8, LL3E9, LL3E10]
 
 
+
+
 WL1E1 = Question("Windows Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 WL1E2 = Question("Windows Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 WL1Exercises = [WL1E1, WL1E2]
@@ -384,6 +440,13 @@ WL3E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "te
 WL3E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 WL3Exercises = [WL3E1, WL3E2]
 
+WL4E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL4E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL4Exercises = [WL4E1, WL4E2]
+
+WL5E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL5E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL5Exercises = [WL5E1, WL5E2]
 
 # -QUIZZES-----------------------------------------------------------------------------------------
 # Examples:
@@ -424,7 +487,6 @@ LQuiz5 = Quiz([
     Question("Which of the following prints your kernel name?", ["-s"], ["-o", "-s", "-n", "-a"]),
     Question("Which of the following is not a valid option of uname?", ["-z"], ["-a", "-s", "-v", "-z"]),
 ])
-
 
 WQuiz1 = Quiz([
     Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
