@@ -337,14 +337,14 @@ def level3():
 # Question(prompt, answers, choices, feedback=lambda their_answer: feedback(their_answer, "A"))
 # Question(prompt, answers, choices, feedback=lambda their_answer, correctAnswers: feedback(their_answer, correctAnswers))
 
-LL1E1 = Question("Print out the list in your home directory in long format.", ["ls- l"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=1)
-LL1E2 = Question("Print out the list one entry per line.", ["ls- 1"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=2)
+LL1E1 = Question("Print out the list in your home directory in long format.", ["ls -l"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=1)
+LL1E2 = Question("Print out the list one entry per line.", ["ls -1"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=2)
 LL1E3 = Question("Change your directory to be in your desktop folder (home folder if N/A)", [], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=3)
 LL1E4 = Question("Change your directory to home without using ~", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=4)
 LL1E5 = Question("Print out your logical path.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=5)
 LL1E6 = Question("Print out your physical path.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=6)
-LL1E7 = Question("Print out your computer hostname ", ["uname -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=7)
-LL1E8 = Question("Print out your kernel version", ["uname -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=8)
+LL1E7 = Question("Print out your computer hostname ", ["uname -n"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=7)
+LL1E8 = Question("Print out your kernel version", ["uname -v"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=8)
 LL1E9 = Question("Print chmod +rx with and without sudo as the prefix and discover the differences", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=9)
 LL1E10 = Question("Print sudo -V and explain what has been printed", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=10)
 LL1Exercises = [LL1E1, LL1E2, LL1E3, LL1E4, LL1E5, LL1E6, LL1E7, LL1E8, LL1E9, LL1E10]
@@ -353,12 +353,12 @@ LL2E1 = Question("Does mv work silently?", ["True", "False"], feedback=lambda th
 LL2E2 = Question("Move your temp.py file from one directory to another.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=2)
 LL2E3 = Question("Remove the temp.py file from your documents folder.", ["a. you cannot", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=3)
 LL2E4 = Question("Try to remove a directory from your files.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=4)
-LL2E5 = Question("Make directory called CLIMe in your home directory ", ["a. mkdir CLIMe", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=5)
-LL2E6 = Question("Can you created multiple directories at once? ", ["a. False", "b. True"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=6)
-LL2E7 = Question("Remove the CLIMe directory that you created earlier.", ["a. rm CLIMe", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=7)
-LL2E8 = Question("Is the rmdir command silent?", ["a. True", "b. False"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=8)
+LL2E5 = Question("Make directory called CLIMe in your home directory ", ["mkdir CLIMe"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=5)
+LL2E6 = Question("Can you created multiple directories at once? ", ["True"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=6)
+LL2E7 = Question("Remove the CLIMe directory that you created earlier.", ["rm CLIMe"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=7)
+LL2E8 = Question("Is the rmdir command silent?", ["True", "False"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=8)
 LL2E9 = Question("Practice using ip  with the following syntax, ip [ OPTIONS ] OBJECT { COMMAND | help } .", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=9)
-LL2E10 = Question("what does ip -route print out?", ["a. The route table your packets take", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=10)
+LL2E10 = Question("what does ip -route print out?", ["The route table your packets take", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=10)
 LL2Exercises = [LL2E1, LL2E2, LL2E3, LL2E4, LL2E5, LL2E6, LL2E7, LL2E8, LL2E9, LL2E10]
 
 LL3E1 = Question("Practice tar by using the different options to show your archive altered.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=3, exerciseNumber=1)
@@ -424,18 +424,18 @@ LQuiz2 = Quiz([
     Question("What is the proper syntax for using the rm command?", ["rm [option]... FILE..."], ["rm [option]... FILE...", "rm ...FILE [option]..", "rm", "rm .... [option]"]),
     Question("rm command gives a warning before deletion of a file.", ["False"], ["True", "False", "Answer 3", "Answer 4"]),
     Question("Which command is used for removing file named -file.txt?", ["rm — -file.txt"], ["Answer 1", "Answer 2", "rm — -file.txt", "rm -f file.txt"]),
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("What is the option to display a message everytime a directory is created? ", ["-v"], ["-f", "-v", "-c", "-a"]),
+    Question("Which is an option that you can use with the mkdir command? ", ["-p"], ["-f", "-c", "-p", "-F"]),
+    Question("You forget the options on mkdir, which option helps you see all of them?", ["--help"], ["--help", "-help", "help", "--lost"]),
+    Question("mdkir can move files.", ["False"], ["True", "False"]),
+    Question("Can you have empty directories removed with an option?", ["True"], ["True", "False"]),
+    Question("What does -version option display?", ["display version information"], ["verison of linux", "verison of the file", "verison of the directories", "display version information"]),
+    Question("You cannot remove multiple directories at once.", ["False"], ["True", "False"]),
+    Question("Which command is used for removing an empty directory?", ["rmdir"], ["mkdir", "rmdir", "del", "remove"]),
+    Question("What does the ip command help aid in the terminal?", ["networking"], ["login", "editor", "networking", "passwords"]),
+    Question("What option allows you to monitor devices on your network?", ["monitor"], ["link", "route", "monitor", "address"]),
+    Question("Which options allows you to view the MAC addresses on your network?", ["neighbour"], ["neighbour", "neighbor", "route", "address"]),
+    Question("Which command is the predeccsor of the ip conmmand", ["ifconfig"], ["ip a", "route", "ifconfig", "traceroute"]),
 ])
 
 LQuiz3 = Quiz([
