@@ -4,6 +4,7 @@ import sys
 import os
 import random
 import time
+import json
 import threading
 import tkinter as tk
 from console import fg, bg, fx
@@ -207,8 +208,6 @@ def level_select():
     print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: description" + fx.end)
     print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: description" + fx.end)
     print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: description" + fx.end)
-    print(spacer + fg.yellow + " 4" + fg.white + ") Level 4: description" + fx.end)
-    print(spacer + fg.yellow + " 5" + fg.white + ") Level 5: description" + fx.end)
     print(spacer + fg.yellow + "99" + fg.white + ") Main Menu" + fx.end)
 
     choice = get_choice(["1", "2", "3", "99"])
@@ -219,10 +218,6 @@ def level_select():
         level2()
     elif choice == "3":
         level3()
-    elif choice == "4":
-        level4()
-    elif choice == "5":
-        level5()
     elif choice == "99":
         main_menu()
 
@@ -255,22 +250,11 @@ def main_menu():
 
 # -LEVEL INSTRUCTIONS------------------------------------------------------------------------------
 
-linuxText = []
-windowsText = []
+with open("linux.json", "r") as read_file:
+    linuxText = json.load(read_file)
 
-linDir = "levels/linux"
-for filename in os.listdir(linDir):
-    file = os.path.join(linDir, filename)
-    with open(file, 'r') as myfile:
-        data = myfile.read()
-        linuxText.append(data)
-
-winDir = "levels/windows"
-for filename in os.listdir(winDir):
-    file = os.path.join(winDir, filename)
-    with open(file, 'r') as myfile:
-        data = myfile.read()
-        windowsText.append(data)
+with open("windows.json", "r") as read_file:
+    windowsText = json.load(read_file)
 
 
 # -LEVELS------------------------------------------------------------------------------------------
@@ -279,111 +263,67 @@ levels = []
 
 def level1():
     set_title("CLIME - Level 1")
-    if OS == windows:
-        l1i = MyThread(windowsText[0])
-        levels.append(l1i)
-        l1i.start()
-        cls()
-        for exercise in WL1Exercises:
-            exercise.run()
-        WQuiz1.run()
-    elif OS == linux:
-        l1i = MyThread(linuxText[0])
+    if OS == linux:
+        l1i = MyThread(linuxText["level1"]["e1"])
         levels.append(l1i)
         l1i.start()
         cls()
         for exercise in LL1Exercises:
             exercise.run()
         LQuiz1.run()
+    elif OS == windows:
+        l1i = MyThread(windowsText["level1"]["e1"])
+        levels.append(l1i)
+        l1i.start()
+        cls()
+        for exercise in WL1Exercises:
+            exercise.run()
+        WQuiz1.run()
     l1i.stop()
     level2()
 
 
 def level2():
     set_title("CLIME - Level 2")
-    if OS == windows:
-        l2i = MyThread(windowsText[1])
-        levels.append(l2i)
-        l2i.start()
-        cls()
-        for exercise in WL2Exercises:
-            exercise.run()
-        WQuiz2.run()
-    elif OS == linux:
-        l2i = MyThread(linuxText[1])
+    if OS == linux:
+        l2i = MyThread(linuxText["level2"]["e1"])
         levels.append(l2i)
         l2i.start()
         cls()
         for exercise in LL2Exercises:
             exercise.run()
         LQuiz2.run()
+    elif OS == windows:
+        l2i = MyThread(windowsText["level2"]["e1"])
+        levels.append(l2i)
+        l2i.start()
+        cls()
+        for exercise in WL2Exercises:
+            exercise.run()
+        WQuiz2.run()
     l2i.stop()
     level3()
 
 
 def level3():
     set_title("CLIME - Level 3")
-    if OS == windows:
-        l3i = MyThread(windowsText[2])
-        levels.append(l3i)
-        l3i.start()
-        cls()
-        for exercise in WL3Exercises:
-            exercise.run()
-        WQuiz2.run()
-    elif OS == linux:
-        l3i = MyThread(windowsText[2])
+    if OS == linux:
+        l3i = MyThread(windowsText["level3"]["e1"])
         levels.append(l3i)
         l3i.start()
         cls()
         for exercise in LL3Exercises:
             exercise.run()
         LQuiz1.run()
+    elif OS == windows:
+        l3i = MyThread(windowsText["level3"]["e1"])
+        levels.append(l3i)
+        l3i.start()
+        cls()
+        for exercise in WL3Exercises:
+            exercise.run()
+        WQuiz2.run()
     l3i.stop()
-    level4()
-
-
-def level4():
-    set_title("CLIME - Level 4")
-    if OS == windows:
-        l4i = MyThread(windowsText[3])
-        levels.append(l4i)
-        l4i.start()
-        cls()
-        for exercise in WL4Exercises:
-            exercise.run()
-        WQuiz4.run()
-    elif OS == linux:
-        l4i = MyThread(linuxText[3])
-        levels.append(l4i)
-        l4i.start()
-        cls()
-        for exercise in LL4Exercises:
-            exercise.run()
-        LQuiz4.run()
-    l4i.stop()
-    level5()
-
-
-def level5():
-    set_title("CLIME - Level 5")
-    if OS == windows:
-        l5i = MyThread(windowsText[4])
-        levels.append(l5i)
-        l5i.start()
-        cls()
-        for exercise in WL5Exercises:
-            exercise.run()
-        WQuiz5.run()
-    elif OS == linux:
-        l5i = MyThread(linuxText[4])
-        levels.append(l5i)
-        l5i.start()
-        cls()
-        for exercise in LL5Exercises:
-            exercise.run()
-        LQuiz5.run()
-    l5i.stop()
     cls()
     print()
     print(spacer + color_random[0] + "End of program." + fx.end)
@@ -445,13 +385,6 @@ WL3E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "te
 WL3E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 WL3Exercises = [WL3E1, WL3E2]
 
-WL4E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-WL4E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-WL4Exercises = [WL4E1, WL4E2]
-
-WL5E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-WL5E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-WL5Exercises = [WL5E1, WL5E2]
 
 # -QUIZZES-----------------------------------------------------------------------------------------
 # Examples:
