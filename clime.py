@@ -54,7 +54,7 @@ class MyThread(threading.Thread):
         instruction = tk.Text(t)
         instruction.pack()
         instruction.insert(tk.END, self.text)
-        instruction.delete(1.0,tk.END)
+#       instruction.delete(1.0,tk.END)
         instruction.configure(state="disabled")
         while not self.shouldStop:
             t.update_idletasks()
