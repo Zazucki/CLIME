@@ -37,11 +37,11 @@ climePrompt = fg.green + "clime" + fg.white + ":" + fg.blue + "~" + fg.white + "
 
 # -CLASSES-----------------------------------------------------------------------------------------
 
-class MyThread(threading.Thread):
+class WindowThread(threading.Thread):
     def __init__(self, text):
         threading.Thread.__init__(self)
         self.shouldStop = False
-        self.text = text
+        self.instructions = text
 
     def disable_event(self):
         pass
@@ -53,12 +53,14 @@ class MyThread(threading.Thread):
         t.lift()
         instruction = tk.Text(t)
         instruction.pack()
-        instruction.insert(tk.END, self.text)
-#       instruction.delete(1.0,tk.END)
-        instruction.configure(state="disabled")
+        instruction.insert(tk.END, self.instructions)
         while not self.shouldStop:
             t.update_idletasks()
+            instruction.replace(1.0, tk.END, self.instructions)
             t.update()
+
+    def updateText(self, text):
+        self.instructions = text
 
     def stop(self):
         self.shouldStop = True
@@ -106,12 +108,15 @@ class Quiz:
 
 
 class Question:
-    def __init__(self, prompt, answers, choices=[], feedback=None, ask_until_correct=False):
+    def __init__(self, prompt, answers, choices=[], feedback=None, ask_until_correct=False, platform=None, levelNumber=None, exerciseNumber=None):
         self.prompt = prompt
         self.answers = answers
         self.choices = choices
         self.feedback = feedback
         self.ask_until_correct = ask_until_correct
+        self.platform = platform
+        self.levelNumber = levelNumber
+        self.exerciseNumber = exerciseNumber
 
     def set_feedback(self, feedback=None):
         self.feedback = feedback
@@ -159,8 +164,6 @@ class Question:
 # -GLOBAL FUNCTIONS--------------------------------------------------------------------------------
 
 def exit_clime():
-    for level in levels:
-        level.stop()
     print()
     print(spacer + color_random[0] + "Thanks for using CLIME!" + fx.end)
     time.sleep(0.5)
@@ -258,68 +261,67 @@ with open("windows.json", "r") as read_file:
 
 # -LEVELS------------------------------------------------------------------------------------------
 
-levels = []
-
 def level1():
     set_title("CLIME - Level 1")
+
+    window = WindowThread((linuxText if OS == linux else windowsText)["level1"]["e1"])
+    window.start()
+    
     if OS == linux:
-        l1i = MyThread(linuxText["level1"]["e1"])
-        levels.append(l1i)
-        l1i.start()
         cls()
         for exercise in LL1Exercises:
+            window.updateText(linuxText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         LQuiz1.run()
     elif OS == windows:
-        l1i = MyThread(windowsText["level1"]["e1"])
-        levels.append(l1i)
-        l1i.start()
         cls()
         for exercise in WL1Exercises:
+            window.updateText(windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         WQuiz1.run()
-    l1i.stop()
+
+    window.stop()
     level2()
 
 
 def level2():
     set_title("CLIME - Level 2")
+    
+    window = WindowThread((linuxText if OS == linux else windowsText)["level2"]["e1"])
+    window.start()
+    
     if OS == linux:
-        l2i = MyThread(linuxText["level2"]["e1"])
-        levels.append(l2i)
-        l2i.start()
         cls()
         for exercise in LL2Exercises:
+            window.updateText(linuxText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         LQuiz2.run()
     elif OS == windows:
-        l2i = MyThread(windowsText["level2"]["e1"])
-        levels.append(l2i)
-        l2i.start()
         cls()
         for exercise in WL2Exercises:
+            window.updateText(windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         WQuiz2.run()
-    l2i.stop()
+    window.stop()
     level3()
 
 
 def level3():
     set_title("CLIME - Level 3")
+    
+    window = WindowThread((linuxText if OS == linux else windowsText)["level3"]["e1"])
+    window.start()
+    
     if OS == linux:
-        l3i = MyThread(windowsText["level3"]["e1"])
-        levels.append(l3i)
-        l3i.start()
         cls()
         for exercise in LL3Exercises:
+            window.updateText(linuxText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         LQuiz1.run()
     elif OS == windows:
-        l3i = MyThread(windowsText["level3"]["e1"])
-        levels.append(l3i)
-        l3i.start()
         cls()
         for exercise in WL3Exercises:
+            window.updateText(windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         WQuiz2.run()
     l3i.stop()
@@ -335,53 +337,53 @@ def level3():
 # Question(prompt, answers, choices, feedback=lambda their_answer: feedback(their_answer, "A"))
 # Question(prompt, answers, choices, feedback=lambda their_answer, correctAnswers: feedback(their_answer, correctAnswers))
 
-LL1E1 = Question("Print out the list in your home directory in long format.", ["ls- l"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL1E2 = Question("Print out the list one entry per line.", ["ls- 1"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL1E3 = Question("Change your directory to be in your desktop folder (home folder if N/A)", [], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL1E4 = Question("Change your directory to home without using ~", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL1E5 = Question("Print out your logical path.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL1E6 = Question("Print out your physical path.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL1E7 = Question("Print out your computer hostname ", ["uname -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL1E8 = Question("Print out your kernel version", ["uname -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL1E9 = Question("Print chmod +rx with and without sudo as the prefix and discover the differences", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL1E10 = Question("Print sudo -V and explain what has been printed", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E1 = Question("Print out the list in your home directory in long format.", ["ls- l"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=1)
+LL1E2 = Question("Print out the list one entry per line.", ["ls- 1"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=2)
+LL1E3 = Question("Change your directory to be in your desktop folder (home folder if N/A)", [], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=3)
+LL1E4 = Question("Change your directory to home without using ~", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=4)
+LL1E5 = Question("Print out your logical path.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=5)
+LL1E6 = Question("Print out your physical path.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=6)
+LL1E7 = Question("Print out your computer hostname ", ["uname -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=7)
+LL1E8 = Question("Print out your kernel version", ["uname -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=8)
+LL1E9 = Question("Print chmod +rx with and without sudo as the prefix and discover the differences", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=9)
+LL1E10 = Question("Print sudo -V and explain what has been printed", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=1, exerciseNumber=10)
 LL1Exercises = [LL1E1, LL1E2, LL1E3, LL1E4, LL1E5, LL1E6, LL1E7, LL1E8, LL1E9, LL1E10]
 
-LL2E1 = Question("Does mv work silently?", ["True", "False"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL2E2 = Question("Move your temp.py file from one directory to another.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL2E3 = Question("Remove the temp.py file from your documents folder.", ["a. you cannot", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL2E4 = Question("Try to remove a directory from your files.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL2E5 = Question("Make directory called CLIMe in your home directory ", ["a. mkdir CLIMe", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL2E6 = Question("Can you created multiple directories at once? ", ["a. False", "b. True"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL2E7 = Question("Remove the CLIMe directory that you created earlier.", ["a. rm CLIMe", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL2E8 = Question("Is the rmdir command silent?", ["a. True", "b. False"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL2E9 = Question("Practice using ip  with the following syntax, ip [ OPTIONS ] OBJECT { COMMAND | help } .", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL2E10 = Question("what does ip -route print out?", ["a. The route table your packets take", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL2E1 = Question("Does mv work silently?", ["True", "False"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=1)
+LL2E2 = Question("Move your temp.py file from one directory to another.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=2)
+LL2E3 = Question("Remove the temp.py file from your documents folder.", ["a. you cannot", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=3)
+LL2E4 = Question("Try to remove a directory from your files.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=4)
+LL2E5 = Question("Make directory called CLIMe in your home directory ", ["a. mkdir CLIMe", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=5)
+LL2E6 = Question("Can you created multiple directories at once? ", ["a. False", "b. True"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=6)
+LL2E7 = Question("Remove the CLIMe directory that you created earlier.", ["a. rm CLIMe", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=7)
+LL2E8 = Question("Is the rmdir command silent?", ["a. True", "b. False"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=8)
+LL2E9 = Question("Practice using ip  with the following syntax, ip [ OPTIONS ] OBJECT { COMMAND | help } .", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=9)
+LL2E10 = Question("what does ip -route print out?", ["a. The route table your packets take", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=2, exerciseNumber=10)
 LL2Exercises = [LL2E1, LL2E2, LL2E3, LL2E4, LL2E5, LL2E6, LL2E7, LL2E8, LL2E9, LL2E10]
 
-LL3E1 = Question("Practice tar by using the different options to show your archive altered.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E2 = Question("Verify an archive file", ["a. tar -W [archive-file] [file or directory to be archived]", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E3 = Question("Remove your zip from your archive.", ["a. $zip –d filename.zip file.txt", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E4 = Question("Update your zip file.", ["a. $zip –u filename.zip file.txt", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E5 = Question("Review the different types of file permissions.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E6 = Question("How many users can a group have?", ["a. 0", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E7 = Question("Enter the syntax to back up an entire harddisk", ["# dd if = /dev/sda of = /dev/sdb", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E8 = Question("Enter the syntax to backup a parition", ["# dd if=/dev/hda1 of=~/partition.img", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E9 = Question("Display the output of the option -file.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E10 = Question("Display your free space with the -k option and convert to GB.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E1 = Question("Practice tar by using the different options to show your archive altered.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=3, exerciseNumber=1)
+LL3E2 = Question("Verify an archive file", ["a. tar -W [archive-file] [file or directory to be archived]", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=3, exerciseNumber=2)
+LL3E3 = Question("Remove your zip from your archive.", ["a. $zip –d filename.zip file.txt", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=3, exerciseNumber=3)
+LL3E4 = Question("Update your zip file.", ["a. $zip –u filename.zip file.txt", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=3, exerciseNumber=4)
+LL3E5 = Question("Review the different types of file permissions.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=3, exerciseNumber=5)
+LL3E6 = Question("How many users can a group have?", ["a. 0", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=3, exerciseNumber=6)
+LL3E7 = Question("Enter the syntax to back up an entire harddisk", ["# dd if = /dev/sda of = /dev/sdb", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=3, exerciseNumber=7)
+LL3E8 = Question("Enter the syntax to backup a parition", ["# dd if=/dev/hda1 of=~/partition.img", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=3, exerciseNumber=8)
+LL3E9 = Question("Display the output of the option -file.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=3, exerciseNumber=9)
+LL3E10 = Question("Display your free space with the -k option and convert to GB.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="L", levelNumber=3, exerciseNumber=10)
 LL3Exercises = [LL3E1, LL3E2, LL3E3, LL3E4, LL3E5, LL3E6, LL3E7, LL3E8, LL3E9, LL3E10]
 
 
-WL1E1 = Question("Windows Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-WL1E2 = Question("Windows Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL1E1 = Question("Windows Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=1, exerciseNumber=1)
+WL1E2 = Question("Windows Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=1, exerciseNumber=2)
 WL1Exercises = [WL1E1, WL1E2]
 
-WL2E1 = Question("Windows Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-WL2E2 = Question("Windows Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL2E1 = Question("Windows Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=2, exerciseNumber=1)
+WL2E2 = Question("Windows Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=2, exerciseNumber=2)
 WL2Exercises = [WL2E1, WL2E2]
 
-WL3E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-WL3E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+WL3E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=3, exerciseNumber=1)
+WL3E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=3, exerciseNumber=2)
 WL3Exercises = [WL3E1, WL3E2]
 
 
