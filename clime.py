@@ -206,6 +206,8 @@ def level_select():
     print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: description" + fx.end)
     print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: description" + fx.end)
     print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: description" + fx.end)
+    print(spacer + fg.yellow + " 4" + fg.white + ") Level 4: description" + fx.end)
+    print(spacer + fg.yellow + " 5" + fg.white + ") Level 5: description" + fx.end)
     print(spacer + fg.yellow + "99" + fg.white + ") Main Menu" + fx.end)
 
     choice = get_choice(["1", "2", "3", "99"])
@@ -216,6 +218,10 @@ def level_select():
         level2()
     elif choice == "3":
         level3()
+    elif choice == "4":
+        level4()
+    elif choice == "5":
+        level5()
     elif choice == "99":
         main_menu()
 
