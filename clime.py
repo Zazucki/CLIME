@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 """Command Line Made Easy"""
 import sys
@@ -55,8 +54,7 @@ class MyThread(threading.Thread):
         instruction = tk.Text(t)
         instruction.pack()
         instruction.insert(tk.END, self.text)
-#       instruction.configure(bg=black)
-#       instruction.configure(fg=white)
+        instruction.delete(1.0,tk.END)
         instruction.configure(state="disabled")
         while not self.shouldStop:
             t.update_idletasks()
@@ -393,7 +391,7 @@ WL3Exercises = [WL3E1, WL3E2]
 # Question("Question prompt", ["Correct answer", "Other correct answer"], ["Answer choice 1", "Answer choice 2", "Answer choice 3", "Answer choice 4"]),
 
 LQuiz1 = Quiz([
-    Question("Does ls -f and ls -F output the same result?", ["True"], ["True", "False", "Answer 3", "Answer 4"]),
+    Question("Does ls -f and ls -F output the same result?", ["True"], ["True", "False"]),
     Question("Which option prints out in human readable format (numbers)", ["ls -h"], ["ls -t", "ls -l", "ls -1", "ls -h"]),
     Question("Can you make ls print in multiple entries", ["True"], ["True", "False", "Answer 3", "Answer 4"]),
     Question("How will you List files from a directory?", ["ls"], ["pwd", "cd", "ls", "ls -a"]),
@@ -449,19 +447,6 @@ WQuiz3 = Quiz([
     Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
 ])
 
-WQuiz4 = Quiz([
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-])
-
-WQuiz5 = Quiz([
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-])
 
 # -FEEDBACK----------------------------------------------------------------------------------------
 
