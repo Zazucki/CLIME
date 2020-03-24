@@ -390,25 +390,44 @@ def level5():
 # Question(prompt, answers, choices, feedback=lambda their_answer: feedback(their_answer, "A"))
 # Question(prompt, answers, choices, feedback=lambda their_answer, correctAnswers: feedback(their_answer, correctAnswers))
 
-LL1E1 = Question("Print out the list in your home directory in long format.", ["ls -a", "ls- l"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL1E2 = Question("Print out the list one entry per line.", ["ls -o", "ls- 1"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL1Exercises = [LL1E1, LL1E2]
+LL1E1 = Question("Print out the list in your home directory in long format.", ["a. ls -a", "b. ls- l"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1E2 = Question("Print out the list one entry per line.", ["a. ls -o", "b. ls- 1"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E3 = Question("Change your directory to be in your desktop folder (home folder if N/A)", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E4 = Question("Change your directory to home without using ~", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E5 = Question("Print out your logical path.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E6 = Question("Print out your physical path.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E7 = Question("Print out your computer hostname ", ["uname -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E8 = Question("Print out your kernel version", ["uname -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E9 = Question("Print chmod +rx with and without sudo as the prefix and discover the differences", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E10 = Question("Print sudo -V and explain what has been printed", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL1Exercises = [LL1E1, LL1E2, LL1E3, LL1E4, LL1E5, LL1E6, LL1E7, LL1E8, LL1E9, LL1E10]
 
 LL2E1 = Question("Does mv work silently?", ["True", "False"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL2E2 = Question("Move your temp.py file from one directory to another", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL2Exercises = [LL2E1, LL2E2]
+LL2E2 = Question("Move your temp.py file from one directory to another.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL2E3 = Question("Remove the temp.py file from your documents folder.", ["a. you cannot", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL2E4 = Question("Try to remove a directory from your files.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL2E5 = Question("Make directory called CLIMe in your home directory ", ["a. mkdir CLIMe", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL2E6 = Question("Can you created multiple directories at once? ", ["a. False", "b. True"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL2E7 = Question("Remove the CLIMe directory that you created earlier.", ["a. rm CLIMe", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL2E8 = Question("Is the rmdir command silent?", ["a. True", "b. False"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL2E9 = Question("Practice using ip  with the following syntax, ip [ OPTIONS ] OBJECT { COMMAND | help } .", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL2E10 = Question("what does ip -route print out?", ["a. The route table your packets take", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL2Exercises = [LL2E1, LL2E2, LL2E3, LL2E4, LL2E5, LL2E6, LL2E7, LL2E8, LL2E9, LL2E10]
 
-LL3E1 = Question("Remove the temp.py file from your documents folder.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3E2 = Question("Try to remove a directory from your files.", ["rm cannot do it", "rmdir"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL3Exercises = [LL3E1, LL3E2]
+LL3E1 = Question("Practice tar by using the different options to show your archive altered.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E2 = Question("Verify an archive file", ["a. tar -W [archive-file] [file or directory to be archived]", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E3 = Question("Remove your zip from your archive.", ["a. $zip –d filename.zip file.txt", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E4 = Question("Update your zip file.", ["a. $zip –u filename.zip file.txt", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E5 = Question("Review the different types of file permissions.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E6 = Question("How many users can a group have?", ["a. 0", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E7 = Question("Enter the syntax to back up an entire harddisk", ["# dd if = /dev/sda of = /dev/sdb", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E8 = Question("Enter the syntax to backup a parition", ["# dd if=/dev/hda1 of=~/partition.img", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E9 = Question("Display the output of the option -file.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3E10 = Question("Display your free space with the -k option and convert to GB.", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
+LL3Exercises = [LL3E1, LL3E2, LL3E3, LL3E4, LL3E5, LL3E6, LL3E7, LL3E8, LL3E9, LL3E10]
 
-LL4E1 = Question("Change your directory to be in your desktop folder (home folder if N/A)", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL4E2 = Question("Change your directory to home without using ~ ", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL4Exercises = [LL4E1, LL4E2]
 
-LL5E1 = Question("Print out your computer hostname", ["uname -n", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL5E2 = Question("Print out your kernel version", ["unmae -v", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
-LL5Exercises = [LL5E1, LL5E2]
+
 
 WL1E1 = Question("Windows Level 1 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
 WL1E2 = Question("Windows Level 1 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True)
