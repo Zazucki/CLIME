@@ -439,26 +439,27 @@ LQuiz2 = Quiz([
 ])
 
 LQuiz3 = Quiz([
-    Question("What does rm stand for? ", ["remove"], ["remember", "remove", "revoke", "return"]),
-    Question("What is the proper syntax for using the rm command?", ["rm [option]... FILE..."], ["rm [option]... FILE...", "rm ...FILE [option]..", "rm", "rm .... [option]"]),
-    Question("rm command gives a warning before deletion of a file.", ["False"], ["True", "False", "Answer 3", "Answer 4"]),
-    Question("Which command is used for removing file named -file.txt?", ["rm — -file.txt"], ["Answer 1", "Answer 2", "rm — -file.txt", "rm -f file.txt"]),
+    Question("What is an archive file?", ["file composed of one or more files along with metadata"], ["file named archive", "file composed of one or more files along with metadata", "file that is zipped", "file that has been unzipped"]),
+    Question("What option is used to verify an archive file?", ["-W"], ["-v", "-A", "-f", "-W"]),
+    Question("What option is used to create an archive?", ["-c"], ["-x", "-A", "-c", "-r"]),
+    Question("Which of the following is not a tar option?", ["-k"], ["-x", "-W", "-z", "-k"]),
+    Question("Which option allows you to delete the original files after zipping?", ["-m"], ["-u", "-m", "-c", "-a"]),
+    Question("Which option allows you to zip a directory recursively?", ["-r"], ["-m", "-c", "-r", "-u"]),
+    Question("Which option allows you to exclude files when creating a zip?" , ["-x"], ["-u", "-x", "-W", "-j"]),
+    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
 ])
-
-LQuiz4 = Quiz([
-    Question("Which of the following are not options in cd command? ", ["."], [".", "..", "~", "dir name"]),
-    Question("Where does ~ option move your directory to?", ["home"], ["back one", "home", "desktop", "root"]),
-    Question("True or False, does cd and cd ~ output the same thing?", ["True"], ["True", "False", "Answer 3", "Answer 4"]),
-    Question("cd command cannot be used without any argument.", ["True"], ["True", "False", "Answer 3", "Answer 4"]),
-])
-
-LQuiz5 = Quiz([
-    Question("Which of the following options prints your operating system.", ["-o"], ["-s", "-n", "-r", "-o"]),
-    Question("Which of the following prints your platforms hardware?", ["-i"], ["-i", "-o", "-m", "-s"]),
-    Question("Which of the following prints your kernel name?", ["-s"], ["-o", "-s", "-n", "-a"]),
-    Question("Which of the following is not a valid option of uname?", ["-z"], ["-a", "-s", "-v", "-z"]),
-])
-
 
 WQuiz1 = Quiz([
     Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
