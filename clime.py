@@ -376,13 +376,15 @@ LL3Exercises = [LL3E1, LL3E2, LL3E3, LL3E4, LL3E5, LL3E6, LL3E7, LL3E8, LL3E9, L
 
 WL1E1 = Question("Print out the command used to show the available directories", ["dir", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=1, exerciseNumber=1)
 WL1E2 = Question("Change your working directory to be in the Desktop folder", ["cd Desktop", "chdir Desktop"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=1, exerciseNumber=2)
-WL1Exercises = [WL1E1, WL1E2]
+WL1E3 = Question("What option would you put if you wanted to know what a command does", ["/?", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=1, exerciseNumber=3)
+WL1E4 = Question("Write the command that prints out the directory structure graphically", ["tree", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=1, exerciseNumber=4)
+WL1Exercises = [WL1E1, WL1E2, WL1E3, WL1E4]
 
 WL2E1 = Question("Windows Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=2, exerciseNumber=1)
 WL2E2 = Question("Windows Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=2, exerciseNumber=2)
 WL2Exercises = [WL2E1, WL2E2]
 
-WL3E1 = Question("Windows Level 3 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=3, exerciseNumber=1)
+WL3E1 = Question("If you wanted to make sure your network card was working, what IP address would you ping", ["ping 127.0.0.1", "127.0.0.1"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=3, exerciseNumber=1)
 WL3E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=3, exerciseNumber=2)
 WL3Exercises = [WL3E1, WL3E2]
 
@@ -469,15 +471,15 @@ WQuiz1 = Quiz([
 ])
 
 WQuiz2 = Quiz([
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("mkdir foo bar makes:", ["2 directories, one named foo and another named bar"], ["one directory named foo bar", "2 directories, one named foo and another named bar", "a path foo/bar", "a directory named foobar"]),
+    Question("rmdir is used to remove an existing directory.", ["True"], ["True", "False"]),
+    Question("rmdir \"foo bar\" ", ["removes the directory named foo bar"], ["closes the command prompt", "throws a syntax error", "removes both foo and bar directories", "removes the directory named foo bar"]),
+    Question("If you need to overwrite a file when moving a directory, what parameter do you specify in the command?", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
 ])
 
 WQuiz3 = Quiz([
-    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
-    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("ipconfig /all shows you detailed information about all network interfaces", ["True"], ["True", "False"]),
+    Question("", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
     Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
     Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
 ])
