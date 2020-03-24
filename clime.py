@@ -392,9 +392,25 @@ WL3Exercises = [WL3E1, WL3E2]
 
 LQuiz1 = Quiz([
     Question("Does ls -f and ls -F output the same result?", ["True"], ["True", "False"]),
-    Question("Which option prints out in human readable format (numbers)", ["ls -h"], ["ls -t", "ls -l", "ls -1", "ls -h"]),
-    Question("Can you make ls print in multiple entries", ["True"], ["True", "False", "Answer 3", "Answer 4"]),
+    Question("Which option prints out in human readable format (numbers)", ["ls -h"], ["ls -t", "ls -l ", "ls -1", "ls -h"]),
+    Question("Can you make ls print in multiple entries", ["True"], ["True", "False"]),
     Question("How will you List files from a directory?", ["ls"], ["pwd", "cd", "ls", "ls -a"]),
+    Question("Which of the following are not options in cd command?", ["."], [".", "..", "~", "dir name"]),
+    Question("Where does ~ option move your directory to? ", ["home"], ["back one", "home", "desktop", "root"]),
+    Question("Does cd and cd ~ output the same thing?", ["True"], ["True", "False"]),
+    Question("cd command cannot be used without any argument.", ["False"], ["True", "False"]),
+    Question("What is the an option when printing your current directory?", ["-P"], ["-P", "-Z", "-A", "-C"]),
+    Question("What is one example you would use pwd when navigating the terminal?", ["path names if lost in a directory"], ["to display your files", "list your files", "path names if lost in a director", "view available disk space"]),
+    Question("What kind of variable is pwd?", ["environment"], ["independent", "global", "environment", "local"]),
+    Question("Which command is used for printing the current working directory?", ["pwd"], ["Home", "cd", "pwd", "dir"]),
+    Question("Which of the following options prints your operating system.", ["-o"], ["-s", "-n", "-r", "-o"]),
+    Question("Which of the following prints your platforms hardware?", ["-i"], ["i", "-o", "-m", "-s"]),
+    Question("Which of the following prints your kernel name?", ["-s"], ["-o", "-s", "-n", "-a"]),
+    Question("Which of the following is not a valid option of uname?", ["-z"], ["-a", "-s", "-v", "-z"]),
+    Question("In order to have sudo access the user must be added to the sudoers file in /etc/sudoers?", ["True"], ["True", "False"]),
+    Question("Which option allows to override a password? ", ["-p"], ["-u", "-v", "-b", "-p"]),
+    Question("Are -k and -K options similar?", ["True"], ["True", "False"]),
+    Question("Sudo and root give the same access.", ["False"], ["True", "False"])
 ])
 
 LQuiz2 = Quiz([
