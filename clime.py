@@ -418,6 +418,22 @@ LQuiz2 = Quiz([
     Question("What does mv command do?", ["moves group of files to a different directory "], ["renames working path", "deletes items ", "moves group of files to a different directory", "deletes directories"]),
     Question("What command works hand and hand with mv", ["rm"], ["ip", "rm", "ls", "pwd"]),
     Question("Which command is used for renaming files?", ["mv"], ["rename", "mv", "cp", "move"]),
+    Question("What does rm stand for? ", ["remove"], ["remember", "remove", "revoke", "return"]),
+    Question("What is the proper syntax for using the rm command?", ["rm [option]... FILE..."], ["rm [option]... FILE...", "rm ...FILE [option]..", "rm", "rm .... [option]"]),
+    Question("rm command gives a warning before deletion of a file.", ["False"], ["True", "False", "Answer 3", "Answer 4"]),
+    Question("Which command is used for removing file named -file.txt?", ["rm — -file.txt"], ["Answer 1", "Answer 2", "rm — -file.txt", "rm -f file.txt"]),
+    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 1", ["Answer 1"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 2", ["Answer 2"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+    Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
 ])
 
 LQuiz3 = Quiz([
