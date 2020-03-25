@@ -393,7 +393,7 @@ WL1E3 = Question("What option would you put if you wanted to know what a command
 WL1E4 = Question("Write the command that prints out the directory structure graphically", ["tree", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=1, exerciseNumber=4)
 WL1Exercises = [WL1E1, WL1E2, WL1E3, WL1E4]
 
-WL2E1 = Question("Windows Level 2 Exercise 1 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=2, exerciseNumber=1)
+WL2E1 = Question("Create a new directory named Alpha in the current working directory.", ["md Alpha", "mkdir Alpha"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=2, exerciseNumber=1)
 WL2E2 = Question("Windows Level 2 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=2, exerciseNumber=2)
 WL2Exercises = [WL2E1, WL2E2]
 
