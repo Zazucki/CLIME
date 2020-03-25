@@ -51,6 +51,8 @@ class WindowThread(threading.Thread):
         t.bind("<Control-c>", lambda x: self.kill())
         t.protocol('WM_DELETE_WINDOW', self.disable_event)
         t.lift()
+        t.iconbitmap(default='favicon.ico')
+        t.title("Instructions")
         instruction = tk.Text(t,
                                 bg="#0C0C0C",
                                 fg="#CCCCCC",
