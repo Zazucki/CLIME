@@ -478,7 +478,7 @@ LQuiz3 = Quiz([
 ])
 
 WQuiz1 = Quiz([
-    Question("Options are not case sensetive", ["False"], ["True", "False"]),
+    Question("Options are case sensetive", ["False"], ["True", "False"]),
     Question("The commands cd and chdir accomplish the same thing", ["True"], ["True", "False"]),
     Question("Question 3", ["Answer 3"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
     Question("Question 4", ["Answer 4"], ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
