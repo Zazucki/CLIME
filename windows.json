@@ -5,34 +5,22 @@
     "e3": "/? Displays help at the command prompt. This can come in handy when you want to run a command but are unsure of the options that are available, or are typing a command but it gives you an error.\n\nNOTE: Don't confuse this with \"HELP\", which is a command that shows all basic Command Prompt Utilities.",
     "e4": "The tree command displays the the folder structure of a drive or path graphically. While it may seem like a basic command, it gives the user a visual idea of what the folder structure may look like rather than using other commands such as dir /s which would show all the contents line-by-line.\n\nFormatting for the command is as follows:\n TREE [drive:][path] [/F] [/A]\n\n   /F   Display the names of the files in each folder.\n   /A   Use ASCII instead of extended characters.\n",
     "e5": "level 1 e5\nline2",
-    "e6": "level 1 e6\nline2",
-    "e7": "level 1 e7\nline2",
-    "e8": "level 1 e8\nline2",
-    "e9": "level 1 e9\nline2",
-    "e10": "level 1 e10\nline2"
+
   },
   "level2": {
     "e1": "The mkdir command is used to create a directory.\n\nMKDIR [drive:]path\nMD [drive:]path\n\nLet's assume we're in the directory C:/Users/CLIME and we wanted to make a new directory called Charlie. To do this we would type the following command:\n\nmkdir Charlie\n\nThis would create a new folder (with no contents) on the Desktop.\n\nNow we can use dir to verify it has been created:\n\nC:\\Users\\CLIME>dir /b\nCharlie\nContacts\nDesktop\nDocuments\nDownloads\nFavorites\nMusic\nOneDrive\nSearches\nVideos\n\n",
-    "e2": "level 1 e2\nline2",
-    "e3": "level 1 e3\nline2",
+    "e2": "The rmdir command is used to remove a directory.\n\nThe format is as follows:\n\nRMDIR [/S] [/Q] [drive:]path\nRD [/S] [/Q] [drive:]path\n\n    /S      Removes all directories and files in the specified directory\n            in addition to the directory itself.  Used to remove a directory\n            tree.\n\n    /Q      Quiet mode, do not ask if ok to remove a directory tree with /S\n\nIf a directory is not empty it will give the message \"The directory is not empty.\". If you want to delete the folder and its contents, use the /S option (NOTE: this will ask you to confirm your deletion). If you want to delete the entire directory tree, you can add the /Q and it will remove the directory without prompting you.",
+    "e3": "As the name implies, move is acommand used for moving files and directories from one location to another. Additionally, this command can be used to rename files and directories.\n\nTo move one or more files:\nMOVE [/Y | /-Y] [drive:][path]filename1[,...] destination\n\nTo rename a directory:\nMOVE [/Y | /-Y] [drive:][path]dirname1 dirname2\n\n  [drive:][path]filename1 Specifies the location and name of the file\n                          or files you want to move.\n  destination             Specifies the new location of the file. Destination\n                          can consist of a drive letter and colon, a\n                          directory name, or a combination. If you are moving\n                          only one file, you can also include a filename if\n                          you want to rename the file when you move it.\n  [drive:][path]dirname1  Specifies the directory you want to rename.\n  dirname2                Specifies the new name of the directory.\n\n  /Y                      Suppresses prompting to confirm you want to\n                          overwrite an existing destination file.\n  /-Y                     Causes prompting to confirm you want to overwrite\n                          an existing destination file.",
     "e4": "level 1 e4\nline2",
     "e5": "level 1 e5\nline2",
-    "e6": "level 1 e6\nline2",
-    "e7": "level 1 e7\nline2",
-    "e8": "level 1 e8\nline2",
-    "e9": "level 1 e9\nline2",
-    "e10": "level 1 e10\nline2"
+
   },
   "level3": {
-    "e1": "level 1 e1\nline2",
+    "e1": "The ping command sends packets of data to specific IP addresses and lets you know how long it took to send the data and recieve a response. Among other uses, the ping command can help IT admins troubleshoot a network problem.\n\nThe command format is as follows:\n\nping [option]\n\nOptions:\n    -t             Ping the specified host until stopped.\n                   To see statistics and continue - type Control-Break;\n                   To stop - type Control-C.\n    -a             Resolve addresses to hostnames.\n    -n count       Number of echo requests to send.\n    -l size        Send buffer size.\n    -f             Set Don't Fragment flag in packet (IPv4-only).\n    -i TTL         Time To Live.\n    -v TOS         Type Of Service (IPv4-only. This setting has been deprecated\n                   and has no effect on the type of service field in the IP\n                   Header).\n    -r count       Record route for count hops (IPv4-only).\n    -s count       Timestamp for count hops (IPv4-only).\n    -j host-list   Loose source route along host-list (IPv4-only).\n    -k host-list   Strict source route along host-list (IPv4-only).\n    -w timeout     Timeout in milliseconds to wait for each reply.\n    -R             Use routing header to test reverse route also (IPv6-only).\n                   Per RFC 5095 the use of this routing header has been\n                   deprecated. Some systems may drop echo requests if\n                   this header is used.\n    -S srcaddr     Source address to use.\n    -c compartment Routing compartment identifier.\n    -p             Ping a Hyper-V Network Virtualization provider address.\n    -4             Force using IPv4.\n    -6             Force using IPv6.\n\nAdditionally, you can make sure the network interface of your computer (wifi or ethernet adapter) is working by pinging 127.0.0.1",
     "e2": "level 1 e2\nline2",
     "e3": "level 1 e3\nline2",
     "e4": "level 1 e4\nline2",
     "e5": "level 1 e5\nline2",
-    "e6": "level 1 e6\nline2",
-    "e7": "level 1 e7\nline2",
-    "e8": "level 1 e8\nline2",
-    "e9": "level 1 e9\nline2",
-    "e10": "level 1 e10\nline2"
+
   }
 }
