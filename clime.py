@@ -265,10 +265,10 @@ def main_menu():
 
 # -LEVEL INSTRUCTIONS------------------------------------------------------------------------------
 
-with open("linux.json", "r") as read_file:
+with open("linux.json", "r", errors="replace") as read_file:
     linuxText = json.load(read_file)
 
-with open("windows.json", "r") as read_file:
+with open("windows.json", "r", errors="replace") as read_file:
     windowsText = json.load(read_file)
 
 
