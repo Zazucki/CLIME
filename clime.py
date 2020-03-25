@@ -397,9 +397,10 @@ WL2E1 = Question("Create a new directory named Alpha in the current working dire
 WL2E2 = Question("Remove the recently created Alpha directory and all of it's contents without asking to confirm your action.", ["rd Alpha /S /Q", "rmdir Alpha /S /Q"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=2, exerciseNumber=2)
 WL2Exercises = [WL2E1, WL2E2]
 
-WL3E1 = Question("If you wanted to make sure your network card was working, what IP address would you ping", ["ping 127.0.0.1", "127.0.0.1"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=3, exerciseNumber=1)
-WL3E2 = Question("Windows Level 3 Exercise 2 Test Prompt", ["test answer 1", "test answer 2"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=3, exerciseNumber=2)
-WL3Exercises = [WL3E1, WL3E2]
+WL3E1 = Question("If you wanted to make sure your network card was working, what command would you use to test the network interface?", ["ping 127.0.0.1"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=3, exerciseNumber=1)
+WL3E2 = Question("Type the command that will get rid of the IPv4 address of the default network adapter", ["ipconfig /release"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=3, exerciseNumber=2)
+WL3E3 = Question("Type the command that will give a new IPv4 address of the default network adapter", ["ipconfig /renew"], feedback=lambda their_answer, correct: print(their_answer, "is wrong,", correct, "is correct"), ask_until_correct=True, platform="W", levelNumber=3, exerciseNumber=3)
+WL3Exercises = [WL3E1, WL3E2, WL3E3]
 
 
 # -QUIZZES-----------------------------------------------------------------------------------------
