@@ -51,8 +51,19 @@ class WindowThread(threading.Thread):
         t.bind("<Control-c>", lambda x: self.kill())
         t.protocol('WM_DELETE_WINDOW', self.disable_event)
         t.lift()
-        instruction = tk.Text(t, bg="#0C0C0C", fg="#CCCCCC", font=("Consolas", 11), height=27, width=120, wrap=tk.WORD)
-        instruction.pack()
+        instruction = tk.Text(t,
+                                bg="#0C0C0C",
+                                fg="#CCCCCC",
+                                font=("Consolas", 11),
+                                height=27,
+                                width=120,
+                                wrap=tk.WORD,
+                                selectbackground="#0C0C0C"
+                                )
+        instruction.pack(   
+                        fill="both",
+                        expand=True
+                        )
         instruction.insert(tk.END, self.instructions)
         while not self.shouldStop:
             t.update_idletasks()
