@@ -10,6 +10,7 @@ import tkinter as tk
 from console import fg, bg, fx
 from console.utils import cls, set_title
 
+
 # -CONFIGURATION-----------------------------------------------------------------------------------
 
 OS = None
@@ -31,7 +32,6 @@ ________/\\\\\\\\\__/\\\______________/\\\\\\\\\\\__/\\\\____________/\\\\__/\\\
        ____\////\\\\\\\\\_\/\\\\\\\\\\\\\\\__/\\\\\\\\\\\_\/\\\_____________\/\\\_\/\\\\\\\\\\\\\\\_ 
         _______\/////////__\///////////////__\///////////__\///______________\///__\///////////////__
 """
-
 climePrompt = fg.green + "clime" + fg.white + ":" + fg.blue + "~" + fg.white + "$ " + fx.end
 
 
@@ -349,6 +349,7 @@ def level3():
     time.sleep(1)
     main_menu()
 
+
 # -EXERCISES---------------------------------------------------------------------------------------
 
 # Question(prompt, answers, choices, feedback=lambda their_answer: print(their_answer))
@@ -409,6 +410,7 @@ WL3Exercises = [WL3E1, WL3E2, WL3E3]
 
 
 # -QUIZZES-----------------------------------------------------------------------------------------
+
 # Examples:
 # Question("Question prompt", ["Correct answer"], ["Answer choice 1", "Answer choice 2", "Answer choice 3", "Answer choice 4"]),
 # Question("Question prompt", ["Correct answer", "Other correct answer"], ["Answer choice 1", "Answer choice 2", "Answer choice 3", "Answer choice 4"]),
