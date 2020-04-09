@@ -220,9 +220,14 @@ def level_select():
     cls()
     set_title("CLIME - Level Select")
     print(color_random[0] + "\n" + spacer + "Level Selection:\n" + fx.end)
-    print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: description" + fx.end)
-    print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: description" + fx.end)
-    print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: description" + fx.end)
+    if OS == Linux:
+        print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: Linux description" + fx.end)
+        print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: Linux description" + fx.end)
+        print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: Linux description" + fx.end)
+    if OS == Windows:
+        print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: Windows description" + fx.end)
+        print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: Windows description" + fx.end)
+        print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: Windows description" + fx.end)
     print(spacer + fg.yellow + "99" + fg.white + ") Main Menu" + fx.end)
 
     choice = get_choice(["1", "2", "3", "99"])
