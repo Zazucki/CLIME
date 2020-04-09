@@ -738,7 +738,7 @@ LQuiz2 = Quiz([
             ["neighbour", "neighbor", "route", "address"]),
     Question("20.Which command is the predeccsor of the ip conmmand",
             ["ifconfig"],
-            ["ip a", "route", "ifconfig", "traceroute"]),
+            ["ip a", "route", "ifconfig", "traceroute"])
 ])
 
 LQuiz3 = Quiz([
@@ -801,7 +801,7 @@ LQuiz3 = Quiz([
             ["True", "False"]),
     Question("20.Which command displays the disk space utilized on mounted file systems?",
             ["df"],
-            ["dd", "dl", "df", "dL"]),
+            ["dd", "dl", "df", "dL"])
 ])
 
 WQuiz1 = Quiz([
@@ -816,7 +816,7 @@ WQuiz1 = Quiz([
             ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
     Question("Question 4",
             ["Answer 4"],
-            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"])
 ])
 
 WQuiz2 = Quiz([
@@ -831,7 +831,7 @@ WQuiz2 = Quiz([
             ["closes the command prompt", "throws a syntax error", "removes both foo and bar directories", "removes the directory named foo bar"]),
     Question("If you need to overwrite a file when moving a directory, what parameter do you specify in the command?",
             ["Answer 4"],
-            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"])
 ])
 
 WQuiz3 = Quiz([
@@ -846,7 +846,7 @@ WQuiz3 = Quiz([
             ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
     Question("Question 4",
             ["Answer 4"],
-            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]),
+            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"])
 ])
 
 
