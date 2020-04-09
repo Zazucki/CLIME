@@ -54,15 +54,15 @@ class WindowThread(threading.Thread):
         t.iconbitmap(default='favicon.ico')
         t.title("Instructions")
         instruction = tk.Text(t,
-                                bg="#0C0C0C",
-                                fg="#CCCCCC",
+                                bg="#0C0C0C", # Window Color
+                                fg="#CCCCCC", # Text Color
                                 font=("Consolas", 11),
-                                height=27,
-                                width=120,
+                                height=27, # in lines
+                                width=120, # in lines
                                 wrap=tk.WORD,
-                                selectbackground="#0C0C0C"
+                                selectbackground="#0C0C0C" # Highlight Color
                                 )
-        instruction.pack(   
+        instruction.pack(
                         fill="both",
                         expand=True
                         )
