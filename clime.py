@@ -226,9 +226,9 @@ def level_select():
     set_title("CLIME - Level Select")
     print(color_random[0] + "\n" + spacer + "Level Selection:\n" + fx.end)
     if OS == linux:
-        print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: Linux description" + fx.end)
-        print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: Linux description" + fx.end)
-        print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: Linux description" + fx.end)
+        print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: Terminal Navigation (ls,cd,pwd,uname,sudo)" + fx.end)
+        print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: File Management (mv,rm,mkdir,rmdir,ip)" + fx.end)
+        print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: File/Data Manipulation (tar,zip,chown,dd,df)" + fx.end)
     if OS == windows:
         print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: Windows description" + fx.end)
         print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: Windows description" + fx.end)
@@ -486,61 +486,61 @@ LL2E10 = Question("what does ip -route print out?",
 LL2Exercises = [LL2E1, LL2E2, LL2E3, LL2E4, LL2E5, LL2E6, LL2E7, LL2E8, LL2E9, LL2E10]
 
 LL3E1 = Question("Practice tar by using the different options to show your archive altered.",
-                ["test answer 1", "test answer 2"],
+                ["tar -cvf", "tar -xvf","tar -c", "tar -x", "tar -v", "tar -f", "tar -t","tar -j","tar -z","tar -r","tar -W"],
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=1)
 LL3E2 = Question("Verify an archive file",
-                ["a. tar -W [archive-file] [file or directory to be archived]", "test answer 2"],
+                ["tar -W [archive-file] [file or directory to be archived]"],
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=2)
-LL3E3 = Question("Remove your zip from your archive.",
-                ["a. $zip –d filename.zip file.txt", "test answer 2"],
+LL3E3 = Question("Remove your zip from your archive (filename of file is ll3e3 HINT:look at the syntax and options).",
+                ["$zip –d ll3e3.zip ll3e3.txt",],
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=3)
-LL3E4 = Question("Update your zip file.",
-                ["a. $zip –u filename.zip file.txt", "test answer 2"],
+LL3E4 = Question("Update your zip file, (filename of file is ll3e4 HINT:look at the syntax and options).",
+                ["$zip –u ll3e4.zip ll3e4.txt"],
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=4)
-LL3E5 = Question("Review the different types of file permissions.",
-                ["test answer 1", "test answer 2"],
+LL3E5 = Question("Review the different types of file permissions, and enter the numeric that belongs to adding read, write, and excute.",
+                ["755"],
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=5)
 LL3E6 = Question("How many users can a group have?",
-                ["a. 0", "test answer 2"],
+                ["0", "zero"],
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=6)
-LL3E7 = Question("Enter the syntax to back up an entire harddisk",
-                ["# dd if = /dev/sda of = /dev/sdb", "test answer 2"],
+LL3E7 = Question("Enter the syntax to back up an entire harddisk (HINT: review difference between backing up and cloning).",
+                ["# dd if = /dev/sda of = /dev/sdb"],
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=7)
-LL3E8 = Question("Enter the syntax to backup a parition",
-                ["# dd if=/dev/hda1 of=~/partition.img", "test answer 2"],
+LL3E8 = Question("Enter the syntax to backup a parition (Name of parition is parition.img)",
+                ["# dd if=/dev/hda1 of=~/partition.img",],
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=8)
-LL3E9 = Question("Display the output of the option -file.",
-                ["test answer 1", "test answer 2"],
+LL3E9 = Question("Enter the how to output diskspace in human-readable format.",
+                ["df -h"],
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=9)
-LL3E10 = Question("Display your free space with the -k option and convert to GB.",
-                ["test answer 1", "test answer 2"],
+LL3E10 = Question("Display your free space with the -k option for file ll3e10.txt.",
+                ["df -k ll3e10.txt"],
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
