@@ -102,7 +102,7 @@ class Quiz:
                 their_wrong_answer = question[1][0]
                 correct_answer = question[1][1][0]
                 print()
-                print("Question #" + str(number))
+                print("      Question: #" + str(number))
                 print("   Your answer: " + their_wrong_answer)
                 print("Correct answer: " + correct_answer)
 
