@@ -226,9 +226,9 @@ def level_select():
     set_title("CLIME - Level Select")
     print(color_random[0] + "\n" + spacer + "Level Selection:\n" + fx.end)
     if OS == linux:
-        print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: Terminal Navigation (ls,cd,pwd,uname,sudo)" + fx.end)
-        print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: File Management (mv,rm,mkdir,rmdir,ip)" + fx.end)
-        print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: File/Data Manipulation (tar,zip,chown,dd,df)" + fx.end)
+        print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: Terminal Navigation    (ls, cd, pwd, uname, sudo)" + fx.end)
+        print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: File Management        (mv, rm, mkdir, rmdir, ip)" + fx.end)
+        print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: File/Data Manipulation (tar, zip, chown, dd, df)" + fx.end)
     if OS == windows:
         print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: Windows description" + fx.end)
         print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: Windows description" + fx.end)
