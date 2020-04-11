@@ -122,6 +122,7 @@ class Quiz:
 
 class Question:
     def __init__(self, prompt, answers, choices=[],
+                 output=None,
                  feedback=None,
                  ask_until_correct=True,
                  platform=None,
@@ -130,6 +131,8 @@ class Question:
         self.prompt = prompt
         self.answers = answers
         self.choices = choices
+        self.output = output
+        self.output = output
         self.feedback = feedback
         self.ask_until_correct = ask_until_correct
         self.platform = platform
@@ -175,7 +178,8 @@ class Question:
                         self.feedback(answer, self.answers)
                 if self.ask_until_correct:
                     continue
-            print()
+            print(self.output + color_random[0] + "\nType \"Next\" to move to next exercise..." + fx.end)
+            get_choice(["next", "Next", "NEXT"])
             return correct
 
 
@@ -363,60 +367,70 @@ def level3():
 
 LL1E1 = Question("Print out the list in your home directory in long format.",
                 ["ls -l"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=1,
                 exerciseNumber=1)
 LL1E2 = Question("Print out the list one entry per line.",
                 ["ls -1"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=1,
                 exerciseNumber=2)
 LL1E3 = Question("Change your directory to be in your desktop folder (home folder if N/A)",
                 ["t1"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=1,
                 exerciseNumber=3)
 LL1E4 = Question("Change your directory to home without using ~",
                 ["test answer 1", "test answer 2"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=1,
                 exerciseNumber=4)
 LL1E5 = Question("Print out your logical path.",
                 ["test answer 1", "test answer 2"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=1,
                 exerciseNumber=5)
 LL1E6 = Question("Print out your physical path.",
                 ["test answer 1", "test answer 2"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=1,
                 exerciseNumber=6)
 LL1E7 = Question("Print out your computer hostname ",
                 ["uname -n"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=1,
                 exerciseNumber=7)
 LL1E8 = Question("Print out your kernel version",
                 ["uname -v"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=1,
                 exerciseNumber=8)
 LL1E9 = Question("Print chmod +rx with and without sudo as the prefix and discover the differences",
                 ["test answer 1", "test answer 2"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=1,
                 exerciseNumber=9)
 LL1E10 = Question("Print sudo -V and explain what has been printed",
                 ["test answer 1", "test answer 2"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=1,
@@ -425,60 +439,70 @@ LL1Exercises = [LL1E1, LL1E2, LL1E3, LL1E4, LL1E5, LL1E6, LL1E7, LL1E8, LL1E9, L
 
 LL2E1 = Question("Does mv work silently, True or False?",
                 ["True"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=2,
                 exerciseNumber=1)
 LL2E2 = Question("Move your temp.py file from one directory to another.",
                 ["test answer 1", "test answer 2"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=2,
                 exerciseNumber=2)
 LL2E3 = Question("Remove the temp.py file from your documents folder.",
                 ["a. you cannot", "test answer 2"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=2,
                 exerciseNumber=3)
 LL2E4 = Question("Try to remove a directory from your files.",
                 ["test answer 1", "test answer 2"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=2,
                 exerciseNumber=4)
 LL2E5 = Question("Make directory called CLIMe in your home directory ",
                 ["mkdir CLIMe"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=2,
                 exerciseNumber=5)
 LL2E6 = Question("Can you created multiple directories at once? ",
                 ["True"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=2,
                 exerciseNumber=6)
 LL2E7 = Question("Remove the CLIMe directory that you created earlier.",
                 ["rm CLIMe"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=2,
                 exerciseNumber=7)
 LL2E8 = Question("Is the rmdir command silent?",
                 ["True", "False"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=2,
                 exerciseNumber=8)
 LL2E9 = Question("Practice using ip  with the following syntax, ip [ OPTIONS ] OBJECT { COMMAND | help } .",
                 ["test answer 1", "test answer 2"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=2,
                 exerciseNumber=9)
 LL2E10 = Question("what does ip -route print out?",
                 ["The route table your packets take", "test answer 2"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=2,
@@ -487,60 +511,70 @@ LL2Exercises = [LL2E1, LL2E2, LL2E3, LL2E4, LL2E5, LL2E6, LL2E7, LL2E8, LL2E9, L
 
 LL3E1 = Question("Practice tar by using the different options to show your archive altered.",
                 ["tar -cvf", "tar -xvf","tar -c", "tar -x", "tar -v", "tar -f", "tar -t","tar -j","tar -z","tar -r","tar -W"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=1)
 LL3E2 = Question("Verify an archive file",
                 ["tar -W [archive-file] [file or directory to be archived]"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=2)
 LL3E3 = Question("Remove your zip from your archive (filename of file is ll3e3 HINT:look at the syntax and options).",
                 ["$zip –d ll3e3.zip ll3e3.txt",],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=3)
 LL3E4 = Question("Update your zip file, (filename of file is ll3e4 HINT:look at the syntax and options).",
                 ["$zip –u ll3e4.zip ll3e4.txt"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=4)
 LL3E5 = Question("Review the different types of file permissions, and enter the numeric that belongs to adding read, write, and excute.",
                 ["755"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=5)
 LL3E6 = Question("How many users can a group have?",
                 ["0", "zero"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=6)
 LL3E7 = Question("Enter the syntax to back up an entire harddisk (HINT: review difference between backing up and cloning).",
                 ["# dd if = /dev/sda of = /dev/sdb"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=7)
 LL3E8 = Question("Enter the syntax to backup a parition (Name of parition is parition.img)",
                 ["# dd if=/dev/hda1 of=~/partition.img",],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=8)
 LL3E9 = Question("Enter the how to output diskspace in human-readable format.",
                 ["df -h"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
                 exerciseNumber=9)
 LL3E10 = Question("Display your free space with the -k option for file ll3e10.txt.",
                 ["df -k ll3e10.txt"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
@@ -550,24 +584,28 @@ LL3Exercises = [LL3E1, LL3E2, LL3E3, LL3E4, LL3E5, LL3E6, LL3E7, LL3E8, LL3E9, L
 
 WL1E1 = Question("Print out the command used to show the available directories",
                 ["dir", "test answer 2"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
                 exerciseNumber=1)
 WL1E2 = Question("Change your working directory to be in the Desktop folder",
                 ["cd Desktop", "chdir Desktop"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
                 exerciseNumber=2)
 WL1E3 = Question("What option would you put if you wanted to know what a command does",
                 ["/?", "test answer 2"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
                 exerciseNumber=3)
 WL1E4 = Question("Write the command that prints out the directory structure graphically",
                 ["tree", "test answer 2"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
@@ -576,12 +614,14 @@ WL1Exercises = [WL1E1, WL1E2, WL1E3, WL1E4]
 
 WL2E1 = Question("Create a new directory named Alpha in the current working directory.",
                 ["md Alpha", "mkdir Alpha"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=2,
                 exerciseNumber=1)
 WL2E2 = Question("Remove the recently created Alpha directory and all of it's contents without asking to confirm your action.",
                 ["rd Alpha /S /Q", "rmdir Alpha /S /Q"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=2,
@@ -590,18 +630,21 @@ WL2Exercises = [WL2E1, WL2E2]
 
 WL3E1 = Question("If you wanted to make sure your network card was working, what command would you use to test the network interface?",
                 ["ping 127.0.0.1"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=3,
                 exerciseNumber=1)
 WL3E2 = Question("Type the command that will get rid of the IPv4 address of the default network adapter",
                 ["ipconfig /release"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=3,
                 exerciseNumber=2)
 WL3E3 = Question("Type the command that will give a new IPv4 address of the default network adapter",
                 ["ipconfig /renew"],
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=3,
