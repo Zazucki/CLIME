@@ -178,8 +178,10 @@ class Question:
                         self.feedback(answer, self.answers)
                 if self.ask_until_correct:
                     continue
-            print(self.output + color_random[0] + "\nType \"Next\" to move to next exercise..." + fx.end)
-            get_choice(["next", "Next", "NEXT"])
+            elif correct:
+                if self.output is not None:
+                    print(str(self.output) + "\n\nType \"Next\" to move to next exercise...")
+                    get_choice(["next", "Next", "NEXT", "n", "N"])
             return correct
 
 
@@ -970,9 +972,9 @@ WQuiz3 = Quiz([
 # Useless section until the feedback lambdas call methods here
 
 def feedback2(their_answer, correct):
-    print(their_answer, "is incorrect, try these answers:")
+    print(their_answer, "is incorrect, try these answers:\n")
     for answer in correct:
-        print(answer)
+        print(spacer + answer + "\n")
 
 
 # -PROGRAM START-----------------------------------------------------------------------------------
