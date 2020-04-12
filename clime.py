@@ -369,7 +369,7 @@ def level3():
 
 LL1E1 = Question("Print out the list in your home directory in long format.",
                 ["ls -l"],
-                output="ls -l",
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=1,
@@ -432,7 +432,7 @@ LL1E9 = Question("Enter the digits to give read, write, and excute permissions",
                 exerciseNumber=9)
 LL1E10 = Question("Print sudo -V and explain what has been printed",
                 ["sudo version", "version"],
-                output="sudo version", "version",
+                output="sudo version",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=1,
@@ -513,7 +513,7 @@ LL2Exercises = [LL2E1, LL2E2, LL2E3, LL2E4, LL2E5, LL2E6, LL2E7, LL2E8, LL2E9, L
 
 LL3E1 = Question("Practice tar by using the different options to show your archive altered.",
                 ["tar -cvf", "tar -xvf","tar -c", "tar -x", "tar -v", "tar -f", "tar -t","tar -j","tar -z","tar -r","tar -W"],
-                output="tar -cvf", "tar -xvf","tar -c", "tar -x", "tar -v", "tar -f", "tar -t","tar -j","tar -z","tar -r","tar -W",
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
@@ -548,7 +548,7 @@ LL3E5 = Question("Review the different types of file permissions, and enter the 
                 exerciseNumber=5)
 LL3E6 = Question("How many users can a group have?",
                 ["0", "zero"],
-                output="0","zero",
+                output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
                 levelNumber=3,
