@@ -301,15 +301,21 @@ def level1():
         for exercise in LL1Exercises:
             window.updateText("Instructions:\n\n" + linuxText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
+        cls()
+        print()
+        input(spacer + "Next up is Quiz 1\n\n" + spacer + "Press Enter to continue...")
+        window.stop()
         LQuiz1.run()
     elif OS == windows:
         cls()
         for exercise in WL1Exercises:
             window.updateText("Instructions:\n\n" + windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
+        cls()
+        print()
+        input(spacer + "Next up is Quiz 1\n\n" + spacer + "Press Enter to continue...")
+        window.stop()
         WQuiz1.run()
-
-    window.stop()
     level2()
 
 
@@ -324,14 +330,21 @@ def level2():
         for exercise in LL2Exercises:
             window.updateText("Instructions:\n\n" + linuxText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
+        cls()
+        print()
+        input(spacer + "Next up is Quiz 1\n\n" + spacer + "Press Enter to continue...")
+        window.stop()
         LQuiz2.run()
     elif OS == windows:
         cls()
         for exercise in WL2Exercises:
             window.updateText("Instructions:\n\n" + windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
+        cls()
+        print()
+        input(spacer + "Next up is Quiz 1\n\n" + spacer + "Press Enter to continue...")
+        window.stop()
         WQuiz2.run()
-    window.stop()
     level3()
 
 
@@ -346,13 +359,21 @@ def level3():
         for exercise in LL3Exercises:
             window.updateText("Instructions:\n\n" + linuxText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
+        cls()
+        print()
+        input(spacer + "Next up is Quiz 1\n\n" + spacer + "Press Enter to continue...")
+        window.stop()
         LQuiz1.run()
     elif OS == windows:
         cls()
         for exercise in WL3Exercises:
             window.updateText("Instructions:\n\n" + windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
+        window.stop()
         WQuiz2.run()
+        cls()
+        print()
+        input(spacer + "Next up is Quiz 1\n\n" + spacer + "Press Enter to continue...")
     l3i.stop()
     cls()
     print()
