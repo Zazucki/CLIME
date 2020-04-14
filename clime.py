@@ -598,34 +598,34 @@ WL1E2 = Question("Change your working directory to be in the Desktop folder",
                 platform="W",
                 levelNumber=1,
                 exerciseNumber=2)
-WL1E6 = Question("From the Desktop folder, change you directory to the Documents folder (hint: you may have to type out the folder path starting with C:/",
+WL1E3 = Question("From the Desktop folder, change you directory to the Documents folder (hint: you may have to type out the folder path starting with C:/",
                 ["cd c:\\Users\\CLIME\\documents", "chdir c:\\Users\\CLIME\\documents", "chdir C:\\Users\\CLIME\\documents", "cd C:/Users/CLIME/Documents", "chdir C:/Users/CLIME/Documents"],
                 output="C:\\Users\\CLIME\\Documents>_",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
-                exerciseNumber=6)
-WL1E3 = Question("What option would you enter if you wanted to know what options are available for the DIR command?",
+                exerciseNumber=3)
+WL1E4 = Question("What option would you enter if you wanted to know what options are available for the DIR command?",
                 ["/?", "dir /?", "DIR /?, Dir /?"],
                 output="Displays a list of files and subdirectories in a directory.\n\nDIR [drive:][path][filename] [/A[[:]attributes]] [/B] [/C] [/D] [/L] [/N]\n  [/O[[:]sortorder]] [/P] [/Q] [/R] [/S] [/T[[:]timefield]] [/W] [/X] [/4]\n\n  [drive:][path][filename]\n              Specifies drive, directory, and/or files to list.\n\n  /A          Displays files with specified attributes.\n  attributes   D  Directories                R  Read-only files\n               H  Hidden files               A  Files ready for archiving\n               S  System files               I  Not content indexed files\n               L  Reparse Points             O  Offline files\n               -  Prefix meaning not\n  /B          Uses bare format (no heading information or summary).\n  /C          Display the thousand separator in file sizes.  This is the\n              default.  Use /-C to disable display of separator.\n  /D          Same as wide but files are list sorted by column.\n  /L          Uses lowercase.\n  /N          New long list format where filenames are on the far right.\n  /O          List by files in sorted order.\n  sortorder    N  By name (alphabetic)       S  By size (smallest first\n\n               E  By extension (alphabetic)  D  By date/time (oldest first)\n               G  Group directories first    -  Prefix to reverse order\n  /P          Pauses after each screenful of information.\n  /Q          Display the owner of the file.\n  /R          Display alternate data streams of the file.\n  /S          Displays files in specified directory and all subdirectories.\n  /T          Controls which time field displayed or used for sorting\n  timefield   C  Creation\n              A  Last Access\n              W  Last Written\n  /W          Uses wide list format.\n  /X          This displays the short names generated for non-8dot3 file\n              names.  The format is that of /N with the short name inserted\n              before the long name. If no short name is present, blanks are\n              displayed in its place.\n  /4          Displays four-digit years\n\nSwitches may be preset in the DIRCMD environment variable.  Override\npreset switches by prefixing any switch with - (hyphen)--for example, /-W.\n",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
-                exerciseNumber=3)
-WL1E4 = Question("Write the command that prints out the directory structure graphically",
+                exerciseNumber=4)
+WL1E5 = Question("Write the command that prints out the directory structure graphically",
                 ["tree", "test answer 2"],
                 output="Folder PATH listing for volume Local Disk\nC:.\n├───Desktop\n├───Documents\n├───Downloads\n├───Favorites\n├───Links\n├───Music\n├───Pictures\n├───Saved Games\n└───Videos",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
-                exerciseNumber=4)
-WL1E5 = Question("Write the command that prints out the directory structure and all its containing files graphically",
+                exerciseNumber=5)
+WL1E6 = Question("Write the command that prints out the directory structure and all its containing files graphically",
                 ["tree /F"],
                 output="Folder PATH listing for volume Local Disk\nVolume serial number is 5EF0-F655\nC:.\n├───Desktop\n├───Documents\n│       dash.props\n│       lab3.txt\n│       lab7.txt\n│\n├───Downloads\n├───Favorites\n├───Links\n├───Music\n├───Pictures\n│       2345fjg.jpg\n│\n├───Saved Games\n└───Videos",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
-                exerciseNumber=5)
+                exerciseNumber=6)
 WL1Exercises = [WL1E1, WL1E2, WL1E3, WL1E4, WL1E5, WL1E6]
 
 WL2E1 = Question("Create a new directory named Alpha in the current working directory.",
