@@ -52,15 +52,15 @@ class WindowThread(threading.Thread):
         t.protocol('WM_DELETE_WINDOW', self.disable_event)
         t.lift()
         t.iconbitmap(default='favicon.ico')
-        t.title("Instructions")
+        t.title("")
         instruction = tk.Text(t,
-                                bg="#0C0C0C", # Window Color
-                                fg="#CCCCCC", # Text Color
-                                font=("Consolas", 11),
+                                bg="#F5F5DC", # Window Color
+                                fg="#131342", # Text Color
+                                font=("Consolas", 14),
                                 height=27, # in lines
                                 width=120, # in lines
-                                wrap=tk.WORD,
-                                selectbackground="#0C0C0C" # Highlight Color
+                                selectbackground="#0C0C0C", # Highlight Color
+                                wrap=tk.WORD
                                 )
         instruction.pack(
                         fill="both",
@@ -271,11 +271,11 @@ def main_menu():
     print(spacer + fg.yellow + " 1" + fg.white + ") Start" + fx.end)
     print(spacer + fg.yellow + "99" + fg.white + ") Exit" + fx.end)
 
-    choice = get_choice(["1", "99", "0"])
+    choice = get_choice(["1", "99"])
 
     if choice == "1":
         start()
-    elif choice == "99" or choice == "0":
+    elif choice == "99":
         exit_clime()
 
 
@@ -299,13 +299,13 @@ def level1():
     if OS == linux:
         cls()
         for exercise in LL1Exercises:
-            window.updateText(linuxText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
+            window.updateText("Instructions:\n\n" + linuxText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         LQuiz1.run()
     elif OS == windows:
         cls()
         for exercise in WL1Exercises:
-            window.updateText(windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
+            window.updateText("Instructions:\n\n" + windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         WQuiz1.run()
 
@@ -322,13 +322,13 @@ def level2():
     if OS == linux:
         cls()
         for exercise in LL2Exercises:
-            window.updateText(linuxText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
+            window.updateText("Instructions:\n\n" + linuxText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         LQuiz2.run()
     elif OS == windows:
         cls()
         for exercise in WL2Exercises:
-            window.updateText(windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
+            window.updateText("Instructions:\n\n" + windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         WQuiz2.run()
     window.stop()
@@ -344,13 +344,13 @@ def level3():
     if OS == linux:
         cls()
         for exercise in LL3Exercises:
-            window.updateText(linuxText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
+            window.updateText("Instructions:\n\n" + linuxText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         LQuiz1.run()
     elif OS == windows:
         cls()
         for exercise in WL3Exercises:
-            window.updateText(windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
+            window.updateText("Instructions:\n\n" + windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         WQuiz2.run()
     l3i.stop()
