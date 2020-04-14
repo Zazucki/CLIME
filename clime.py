@@ -236,9 +236,9 @@ def level_select():
         print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: File Management        (mv, rm, mkdir, rmdir, ip)" + fx.end)
         print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: File/Data Manipulation (tar, zip, chown, dd, df)" + fx.end)
     if OS == windows:
-        print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: Windows description" + fx.end)
-        print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: Windows description" + fx.end)
-        print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: Windows description" + fx.end)
+        print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: Command Line Navigation       (cd, dir, tree, help, /?)" + fx.end)
+        print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: File and Folder Management/Manipulation (mkdir, rmdir, move, " + fx.end)
+        print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: Useful Command Line Utilities (chdisk, ipconfig, ping)" + fx.end)
     print(spacer + fg.yellow + "99" + fg.white + ") Main Menu" + fx.end)
 
     choice = get_choice(["1", "2", "3", "99"])
@@ -586,20 +586,20 @@ LL3Exercises = [LL3E1, LL3E2, LL3E3, LL3E4, LL3E5, LL3E6, LL3E7, LL3E8, LL3E9, L
 
 WL1E1 = Question("Print out the command used to show the available directories",
                 ["dir", "test answer 2"],
-                output="TEMP OUTPUT",
+                output=" Volume in drive C is Local Disk\n \n Directory of C:\\Users\\CLIME\n\n04/10/2020  04:00 PM    <DIR>          .\n04/10/2020  04:00 PM    <DIR>          ..\n04/10/2020  04:23 PM    <DIR>          Documents\n03/18/2019  09:52 PM    <DIR>          Downloads\n03/18/2019  09:52 PM    <DIR>          Music\n03/18/2019  09:52 PM    <DIR>          Pictures\n03/18/2019  09:52 PM    <DIR>          Videos\n               0 File(s)              0 bytes\n               7 Dir(s)  269,132,210,176 bytes free",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
                 exerciseNumber=1)
 WL1E2 = Question("Change your working directory to be in the Desktop folder",
-                ["cd Desktop", "chdir Desktop"],
-                output="TEMP OUTPUT",
+                ["cd Desktop", "chdir Desktop", "chdir desktop", "cd desktop"],
+                output="C:\\Users\\CLIME\\Desktop>_",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
                 exerciseNumber=2)
-WL1E3 = Question("What option would you put if you wanted to know what a command does",
-                ["/?", "test answer 2"],
+WL1E3 = Question("What option would you put if you wanted to know what options are available for the DIR command?",
+                ["/?", "dir /?", "DIR /?"],
                 output="TEMP OUTPUT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
