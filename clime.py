@@ -237,7 +237,7 @@ def level_select():
         print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: File/Data Manipulation (tar, zip, chown, dd, df)" + fx.end)
     if OS == windows:
         print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: Command Line Navigation                 (CLI syntax, cd, dir, tree, /?)" + fx.end)
-        print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: File and Folder Management/Manipulation (mkdir, rmdir, move)" + fx.end)
+        print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: File and Folder Management/Manipulation (mkdir, rmdir, fsutil, move, more)" + fx.end)
         print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: Useful Command Line Utilities           (chdisk, ipconfig, ping)" + fx.end)
     print(spacer + fg.yellow + "99" + fg.white + ") Main Menu" + fx.end)
 
