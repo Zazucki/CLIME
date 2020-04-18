@@ -237,7 +237,7 @@ def level_select():
         print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: File/Data Manipulation (tar, zip, chown, dd, df)" + fx.end)
     if OS == windows:
         print(spacer + fg.yellow + " 1" + fg.white + ") Level 1: Command Line Navigation                 (CLI syntax, cd, dir, tree, /?)" + fx.end)
-        print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: File and Folder Management/Manipulation (mkdir, rmdir, fsutil, move, more)" + fx.end)
+        print(spacer + fg.yellow + " 2" + fg.white + ") Level 2: File and Folder Management/Manipulation (mkdir, rmdir, fsutil, more, move)" + fx.end)
         print(spacer + fg.yellow + " 3" + fg.white + ") Level 3: Useful Command Line Utilities           (chdisk, ipconfig, ping)" + fx.end)
     print(spacer + fg.yellow + "99" + fg.white + ") Main Menu" + fx.end)
 
@@ -677,6 +677,62 @@ WL2E2 = Question("Remove the recently created Alpha directory and all of it's co
                 platform="W",
                 levelNumber=2,
                 exerciseNumber=2)
+WL2E3 = Question("Remove the recently created Alpha directory and all of it's contents without asking to confirm your action.",
+                ["rd Alpha /S /Q", "rmdir Alpha /S /Q"],
+                output="TEMP OUTPUT",
+                feedback=lambda their_answer, correct: feedback2(their_answer, correct),
+                platform="W",
+                levelNumber=2,
+                exerciseNumber=3)
+WL2E4 = Question("Remove the recently created Alpha directory and all of it's contents without asking to confirm your action.",
+                ["rd Alpha /S /Q", "rmdir Alpha /S /Q"],
+                output="TEMP OUTPUT",
+                feedback=lambda their_answer, correct: feedback2(their_answer, correct),
+                platform="W",
+                levelNumber=2,
+                exerciseNumber=4)
+WL2E5 = Question("Remove the recently created Alpha directory and all of it's contents without asking to confirm your action.",
+                ["rd Alpha /S /Q", "rmdir Alpha /S /Q"],
+                output="TEMP OUTPUT",
+                feedback=lambda their_answer, correct: feedback2(their_answer, correct),
+                platform="W",
+                levelNumber=2,
+                exerciseNumber=5)
+WL2E6 = Question("Remove the recently created Alpha directory and all of it's contents without asking to confirm your action.",
+                ["rd Alpha /S /Q", "rmdir Alpha /S /Q"],
+                output="TEMP OUTPUT",
+                feedback=lambda their_answer, correct: feedback2(their_answer, correct),
+                platform="W",
+                levelNumber=2,
+                exerciseNumber=6)
+WL2E7 = Question("Remove the recently created Alpha directory and all of it's contents without asking to confirm your action.",
+                ["rd Alpha /S /Q", "rmdir Alpha /S /Q"],
+                output="TEMP OUTPUT",
+                feedback=lambda their_answer, correct: feedback2(their_answer, correct),
+                platform="W",
+                levelNumber=2,
+                exerciseNumber=7)
+WL2E8 = Question("Remove the recently created Alpha directory and all of it's contents without asking to confirm your action.",
+                ["rd Alpha /S /Q", "rmdir Alpha /S /Q"],
+                output="TEMP OUTPUT",
+                feedback=lambda their_answer, correct: feedback2(their_answer, correct),
+                platform="W",
+                levelNumber=2,
+                exerciseNumber=8)
+WL2E9 = Question("Remove the recently created Alpha directory and all of it's contents without asking to confirm your action.",
+                ["rd Alpha /S /Q", "rmdir Alpha /S /Q"],
+                output="TEMP OUTPUT",
+                feedback=lambda their_answer, correct: feedback2(their_answer, correct),
+                platform="W",
+                levelNumber=2,
+                exerciseNumber=9)
+WL2E10 = Question("Remove the recently created Alpha directory and all of it's contents without asking to confirm your action.",
+                ["rd Alpha /S /Q", "rmdir Alpha /S /Q"],
+                output="TEMP OUTPUT",
+                feedback=lambda their_answer, correct: feedback2(their_answer, correct),
+                platform="W",
+                levelNumber=2,
+                exerciseNumber=10)
 WL2Exercises = [WL2E1, WL2E2]
 
 WL3E1 = Question("If you wanted to make sure your network card was working, what command would you use to test the network interface?",
