@@ -1016,7 +1016,7 @@ WQuiz1 = Quiz([
     Question("Which command will change the directory to the User's Documents folder?",
             ["cd C:/Users/Charlie/Documents"],
             ["cd C:/Users/Program Files/Documents/Charlie", "cd Pictures", "chdir Desktop/Users", "tree"],
-            ask_until_correct=False)
+            ask_until_correct=False),
     Question("Options are case sensetive",
             ["True"],
             ["True", "False"],
@@ -1027,16 +1027,16 @@ WQuiz1 = Quiz([
             ask_until_correct=False),
     Question("Typing /? option after a command:",
             ["displays the different possible options available for a command"],
-            ["shows all the command line utilities", "runs all the possible command options at the same time", "displays the different possible options available for a command", "is the same as typing 'help' aftera command"],
+            ["shows all the command line utilities", "runs all the possible command options at the same time", "displays the different possible options available for a command", "is the same as typing 'help' after a command"],
             ask_until_correct=False),
     Question("In DIR, /s and /S perform the same function",
             ["False"],
             ["True", "False"],
-            ask_until_correct=False)
+            ask_until_correct=False),
     Question("____ is/are modifiers for a command that can affect how the program is run or displays its output",
             ["Options"],
             ["Syntax", "Options", "Help", "Commands"],
-            ask_until_correct=False)
+            ask_until_correct=False),
     Question("Syntax is not important to the command line",
             ["False"],
             ["True", "False"],
