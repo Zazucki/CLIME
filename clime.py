@@ -495,7 +495,7 @@ LL2E5 = Question("Make directory called CLIMe in your home directory ",
                 platform="L",
                 levelNumber=2,
                 exerciseNumber=5)
-LL2E6 = Question("Can you created multiple directories at once? ",
+LL2E6 = Question("Can you created multiple directories at once, True or False? ",
                 ["True","true","T","t"],
                 output="CORRECT",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
