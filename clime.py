@@ -1109,7 +1109,7 @@ WQuiz3 = Quiz([
 
 # -FEEDBACK----------------------------------------------------------------------------------------
 
-# Useless section until the feedback lambdas call methods here
+# feedback lambdas call methods here, more functions possible, or maybe one generalized feedback method.
 
 def feedback2(their_answer, correct):
     print(their_answer, "is incorrect, try these answers:\n")
