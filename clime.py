@@ -723,7 +723,7 @@ WL2Exercises = [WL2E1, WL2E2, WL2E3, WL2E4, WL2E5, WL2E6, WL2E7, WL2E8]
 
 WL3E1 = Question("If you wanted to make sure your network card was working, what command would you use to test the network interface?",
                 ["ping 127.0.0.1"],
-                output="TEMP OUTPUT",
+                output="Pinging 127.0.0.1 with 32 bytes of data:\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\n\nPing statistics for 127.0.0.1:\n    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),\nApproximate round trip times in milli-seconds:\n    Minimum = 0ms, Maximum = 0ms, Average = 0ms\n",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=3,
@@ -1080,9 +1080,9 @@ WQuiz2 = Quiz([
             ["Displays the content of lineup.txt"],
             ["Displays the content of lineup.txt", "takes you to the Documents folder", "shows where the lineup.txt file in the directory", "creates the file lineup.txt"],
             ask_until_correct=False),
-    Question("",
-            [""],
-            ["closes the command prompt", "throws a syntax error", "removes both foo and bar directories", "removes the directory named foo bar"],
+    Question("when using 'more', you have to type the name of the file exactly as it is (including extension)",
+            ["Yes, the command line needs to know exactly what file you're talking about"],
+            ["Yes, the command line needs to know exactly what file you're talking about", "No, the computer should know what file you're talking about"],
             ask_until_correct=False)
 
 ])
@@ -1092,17 +1092,17 @@ WQuiz3 = Quiz([
             ["True"],
             ["True", "False"],
             ask_until_correct=False),
-    Question("",
-            ["Answer 2"],
-            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    Question("What is the loopback address to test the network adapter",
+            ["127.0.0.1"],
+            ["192.168.0.1", "10.0.0.0", "127.0.0.1", "206.95.9.1"],
             ask_until_correct=False),
-    Question("Question 3",
-            ["Answer 3"],
-            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    Question("what command is used to check the file system of a computer",
+            ["chdsk"],
+            ["chdsk", "ping 192.168.0.1", "systeminfo", "ipconfig /all"],
             ask_until_correct=False),
-    Question("Question 4",
-            ["Answer 4"],
-            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    Question("what sequence of options releases the IP adress of the computer and gives the computer a new IP",
+            ["ipconfig /release, ipconfig /renew"],
+            ["ipconfig /flushdns", "ping 127.0.0.1", "ipconfig /release, ipconfig /renew", "chdsk /F"],
             ask_until_correct=False)
 ])
 
