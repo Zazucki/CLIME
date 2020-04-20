@@ -482,7 +482,7 @@ LL2E3 = Question("Remove the temp.py file from your documents folder.",
                 levelNumber=2,
                 exerciseNumber=3)
 LL2E4 = Question("Remove the REMOVE.txt file from your files.",
-                ["rmd REMOVE.txt"],
+                ["rm REMOVE.txt"],
                 output="\nSUCCESSFULLY COMPLETED",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="L",
