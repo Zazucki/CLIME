@@ -312,9 +312,9 @@ def level1():
             window.updateText("Instructions:\n\n" + windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         cls()
+        window.stop()
         print()
         input(spacer + "Next up is Quiz 1\n\n" + spacer + "Press Enter to continue...")
-        window.stop()
         WQuiz1.run()
     level2()
 
@@ -341,9 +341,9 @@ def level2():
             window.updateText("Instructions:\n\n" + windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
         cls()
+        window.stop()
         print()
         input(spacer + "Next up is Quiz 2\n\n" + spacer + "Press Enter to continue...")
-        window.stop()
         WQuiz2.run()
     level3()
 
@@ -369,11 +369,11 @@ def level3():
         for exercise in WL3Exercises:
             window.updateText("Instructions:\n\n" + windowsText["level" + str(exercise.levelNumber)]["e" + str(exercise.exerciseNumber)])
             exercise.run()
-        window.stop()
-        WQuiz2.run()
         cls()
+        window.stop()
         print()
         input(spacer + "Next up is Quiz 3\n\n" + spacer + "Press Enter to continue...")
+        WQuiz3.run()
     l3i.stop()
     cls()
     print()
@@ -1109,7 +1109,7 @@ WQuiz3 = Quiz([
 
 # -FEEDBACK----------------------------------------------------------------------------------------
 
-# Useless section until the feedback lambdas call methods here
+# feedback lambdas call methods here, more functions possible, or maybe one generalized feedback method.
 
 def feedback2(their_answer, correct):
     print(their_answer, "is incorrect, try these answers:\n")
