@@ -607,40 +607,40 @@ LL3Exercises = [LL3E1, LL3E2, LL3E3, LL3E4, LL3E5, LL3E6, LL3E7, LL3E8, LL3E9, L
 
 WL1E1 = Question("EX1. Does syntax matter in the command line?",
                 ["yes", "Yes"],
-                output="",
+                output="That is Correct! the Command Line will be looking for specific words\nin the command to perform its' task. For instance, the prompt\nasking you to type 'Next' will be expecting you to type:\n\nn\nnext\nNext\nN\n\nIf it doesn't get those as inputs, it will not go to the next question.",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
                 exerciseNumber=1)
-WL1E2 = Question("EX2. Are options case-sensitive",
+WL1E2 = Question("EX2. Are options case-sensitive?",
                 ["yes", "Yes"],
-                output=" ",
+                output="That is Correct! For instance, /S can be very different from /s to some Utilities.",
                 feedback=lambda their_answer,correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
                 exerciseNumber=2)
-WL1E3 = Question("EX3. Print out the command used to show the available directories",
+WL1E3 = Question("EX3. Print out the command used to show the available directories in a folder",
                 ["dir"],
                 output=" Volume in drive C is Local Disk\n \n Directory of C:\\Users\\CLIME\n\n04/10/2020  04:00 PM    <DIR>          .\n04/10/2020  04:00 PM    <DIR>          ..\n04/10/2020  04:23 PM    <DIR>          Documents\n03/18/2019  09:52 PM    <DIR>          Downloads\n03/18/2019  09:52 PM    <DIR>          Music\n03/18/2019  09:52 PM    <DIR>          Pictures\n03/18/2019  09:52 PM    <DIR>          Videos\n               0 File(s)              0 bytes\n               7 Dir(s)  269,132,210,176 bytes free",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
                 exerciseNumber=3)
-WL1E4 = Question("EX4. Change your working directory to be in the Desktop folder",
-                ["cd Desktop", "chdir Desktop", "chdir desktop", "cd desktop"],
+WL1E4 = Question("EX4. Change your working directory to be in the Desktop folder using cd.\n\nC:/Users/CLIME:\n\nDesktop\nDocuments\nDownloads\nFavorites\nGoogle Drive\nLinks\nMusic\nOneDrive\nSaved Games\nSearches\nVideos",
+                ["cd Desktop", "cd desktop"],
                 output="C:\\Users\\CLIME\\Desktop>_",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
                 exerciseNumber=4)
-WL1E5 = Question("EX5. From the Desktop folder, change you directory to the Documents folder (hint: you may have to type out the folder path starting with C:/",
-                ["cd c:\\Users\\CLIME\\documents", "chdir c:\\Users\\CLIME\\documents", "chdir C:\\Users\\CLIME\\documents", "cd C:/Users/CLIME/Documents", "chdir C:/Users/CLIME/Documents"],
+WL1E5 = Question("EX5. From the Desktop folder, change you directory to the Documents folder \n  (hint: you may have to type out the full folder path (case-senstive) starting with C:/)\n\nC:/Users/CLIME:\n\nDesktop\nDocuments\nDownloads\nFavorites\nGoogle Drive\nLinks\nMusic\nOneDrive\nSaved Games\nSearches\nVideos",
+                ["cd C:/Users/CLIME/Documents", "chdir C:/Users/CLIME/Documents"],
                 output="C:\\Users\\CLIME\\Documents>_",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
                 exerciseNumber=5)
-WL1E6 = Question("EX6. What option would you enter if you wanted to know what options are available for the DIR command?",
+WL1E6 = Question("EX6. What option would you enter if you wanted to know what options are\n  available for the DIR command?",
                 ["/?", "dir /?", "DIR /?, Dir /?"],
                 output="Displays a list of files and subdirectories in a directory.\n\nDIR [drive:][path][filename] [/A[[:]attributes]] [/B] [/C] [/D] [/L] [/N]\n  [/O[[:]sortorder]] [/P] [/Q] [/R] [/S] [/T[[:]timefield]] [/W] [/X] [/4]\n\n  [drive:][path][filename]\n              Specifies drive, directory, and/or files to list.\n\n  /A          Displays files with specified attributes.\n  attributes   D  Directories                R  Read-only files\n               H  Hidden files               A  Files ready for archiving\n               S  System files               I  Not content indexed files\n               L  Reparse Points             O  Offline files\n               -  Prefix meaning not\n  /B          Uses bare format (no heading information or summary).\n  /C          Display the thousand separator in file sizes.  This is the\n              default.  Use /-C to disable display of separator.\n  /D          Same as wide but files are list sorted by column.\n  /L          Uses lowercase.\n  /N          New long list format where filenames are on the far right.\n  /O          List by files in sorted order.\n  sortorder    N  By name (alphabetic)       S  By size (smallest first\n\n               E  By extension (alphabetic)  D  By date/time (oldest first)\n               G  Group directories first    -  Prefix to reverse order\n  /P          Pauses after each screenful of information.\n  /Q          Display the owner of the file.\n  /R          Display alternate data streams of the file.\n  /S          Displays files in specified directory and all subdirectories.\n  /T          Controls which time field displayed or used for sorting\n  timefield   C  Creation\n              A  Last Access\n              W  Last Written\n  /W          Uses wide list format.\n  /X          This displays the short names generated for non-8dot3 file\n              names.  The format is that of /N with the short name inserted\n              before the long name. If no short name is present, blanks are\n              displayed in its place.\n  /4          Displays four-digit years\n\nSwitches may be preset in the DIRCMD environment variable.  Override\npreset switches by prefixing any switch with - (hyphen)--for example, /-W.\n",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
@@ -648,14 +648,14 @@ WL1E6 = Question("EX6. What option would you enter if you wanted to know what op
                 levelNumber=1,
                 exerciseNumber=6)
 WL1E7 = Question("EX7. Write the command that prints out the directory structure graphically",
-                ["tree", "test answer 2"],
+                ["tree","TREE"],
                 output="Folder PATH listing for volume Local Disk\nC:.\n├───Desktop\n├───Documents\n├───Downloads\n├───Favorites\n├───Links\n├───Music\n├───Pictures\n├───Saved Games\n└───Videos",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=1,
                 exerciseNumber=7)
-WL1E8 = Question("EX8. Write the command that prints out the directory structure and all its containing files graphically",
-                ["tree /F"],
+WL1E8 = Question("EX8. Write the command that prints out the directory structure and all its containing\n  files graphically",
+                ["tree /F", "TREE /F"],
                 output="Folder PATH listing for volume Local Disk\nVolume serial number is 5EF0-F655\nC:.\n├───Desktop\n├───Documents\n│       dash.props\n│       lab3.txt\n│       lab7.txt\n│\n├───Downloads\n├───Favorites\n├───Links\n├───Music\n├───Pictures\n│       2345fjg.jpg\n│\n├───Saved Games\n└───Videos",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
@@ -663,21 +663,21 @@ WL1E8 = Question("EX8. Write the command that prints out the directory structure
                 exerciseNumber=8)
 WL1Exercises = [WL1E1, WL1E2, WL1E3, WL1E4, WL1E5, WL1E6, WL1E7, WL1E8]
 
-WL2E1 = Question("EX1. Let's assume we're working in the Documents folder. Create a new directory named Alpha in the current working directory.",
+WL2E1 = Question("EX1. Let's assume we're working in the Documents folder. Create a new directory \nnamed Alpha in the current working directory.",
                 ["md Alpha", "mkdir Alpha"],
                 output="C:.\n├───Desktop\n├───Documents\n│   └───Alpha\n├───Downloads\n├───Favorites\n├───Links\n├───Music\n├───Pictures\n├───Saved Games\n└───Videos\n",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=2,
                 exerciseNumber=1)
-WL2E2 = Question("EX2. In the same Documents folder, in one command create a new directory named 'foo' with another folder named 'bar' in it.",
+WL2E2 = Question("EX2. In the same Documents folder, in one command create a new directory named 'foo' with\n  another folder named 'bar' in it.",
                 ["mkdir foo\\bar", "md foo\\bar"],
                 output="C:.\n├───Desktop\n├───Documents\n│   ├───Alpha\n│   └───foo\n│       └───bar\n├───Downloads\n├───Favorites\n├───Links\n├───Music\n├───Pictures\n├───Saved Games\n└───Videos\n",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
                 platform="W",
                 levelNumber=2,
                 exerciseNumber=2)
-WL2E3 = Question("EX3. Remove the recently created Alpha directory and all of it's contents without asking to confirm your action.",
+WL2E3 = Question("EX3. Remove the recently created Alpha directory and all of it's contents without asking to\n  confirm your action.",
                 ["rd Alpha /S /Q", "rmdir Alpha /S /Q"],
                 output="C:.\n├───Desktop\n├───Documents\n│   └───foo\n│       └───bar\n├───Downloads\n├───Favorites\n├───Links\n├───Music\n├───Pictures\n├───Saved Games\n└───Videos",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
@@ -721,7 +721,7 @@ WL2E8 = Question("EX8. move the lab7.txt file to the 'foo' folder.\n\nC:.\n│  
                 exerciseNumber=8)
 WL2Exercises = [WL2E1, WL2E2, WL2E3, WL2E4, WL2E5, WL2E6, WL2E7, WL2E8]
 
-WL3E1 = Question("EX1. If you wanted to make sure your network card was working, what command would you use to test the network interface?",
+WL3E1 = Question("EX1. If you wanted to make sure your network card was working, what command would you use to\n  test the network interface?",
                 ["ping 127.0.0.1"],
                 output="Pinging 127.0.0.1 with 32 bytes of data:\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\n\nPing statistics for 127.0.0.1:\n    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),\nApproximate round trip times in milli-seconds:\n    Minimum = 0ms, Maximum = 0ms, Average = 0ms\n",
                 feedback=lambda their_answer, correct: feedback2(their_answer, correct),
